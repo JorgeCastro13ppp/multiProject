@@ -28,3 +28,24 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Instalar bootstrap para modificarlo con SASS(scss)
 npm install --save bootstrap
+
+## Importar bootstrap en el style.scss
+@import 'bootstrap/scss/bootstrap';
+
+## Instalar dependencias popper.js
+install bootstrap popper.js
+
+## Definir ruta del script en el angular.json
+"scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
+
+## Instalar dependencias de SASS(scss)
+npm install -g sass
+
+## Watch mode para observar los cambios y compilarlos
+sass --watch ./styles.scss ./styles.css
+
+## O utilizar extensión Live Sass Compiler
+## Utilizar esta ruta para mejor funcionamiento en el style.scss
+@import '../node_modules/bootstrap/scss/bootstrap';

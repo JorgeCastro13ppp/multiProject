@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+.bg-primary{
+  background-color: #712cf9 !important;
+} // Define el color morado (purple) como el nuevo color primario
+
+.navbar-brand{
+  color: white !important;
+}
+
+
