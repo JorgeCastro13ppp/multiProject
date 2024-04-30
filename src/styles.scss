@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+.btn-primary{
+  background-color: #712cf9 !important;
+  --bs-btn-border-color: #712cf9 !important;
+}
+
 .bg-primary{
   background-color: #712cf9 !important;
 } // Define el color morado (purple) como el nuevo color primario
@@ -8,5 +13,119 @@
 .navbar-brand{
   color: white !important;
 }
+
+.clear-entry-button{
+  padding: 8px 10.5px 8px 10.5px;
+}
+
+.point-button{
+  padding-left: 19px;
+  padding-right: 19px;
+}
+.multiply-button{
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+.percentage-button{
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.add-button{
+  padding-left: 14.5px;
+  padding-right: 14.5px;
+}
+
+.divide-button{
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+
+.subtract-button{
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+
+.clear-button{
+  padding-left: 15.5px;
+  padding-right: 15.5px;
+}
+
+/* Estilos generales para las columnas */
+.col-1 {
+    /* Establecer un ancho predeterminado */
+    width: 10%; /* Ancho predeterminado para pantallas pequeñas */
+  }
+
+/* Media queries para ajustar el ancho en diferentes tamaños de pantalla */
+@media (min-width: 576px) { /* Tamaño de pantalla: Extra pequeña (>= 576px) */
+    .col-1 {
+      width: 9%; /* Ancho para pantallas medianas */
+    }
+}
+
+@media (min-width: 768px) { /* Tamaño de pantalla: Pequeña (>= 768px) */
+  .col-1 {
+      width: 8%; /* Ancho para pantallas grandes */
+    }
+}
+
+@media (min-width: 992px) { /* Tamaño de pantalla: Grande (>= 992px) */
+  .col-1 {
+      width: 7%; /* Ancho para pantallas grandes */
+    }
+}
+@media (min-width: 1200px) { /* Tamaño de pantalla: Extra grande (>= 1200px) */
+  .col-1 {
+      width: 6%; /* Ancho para pantallas grandes */
+    }
+}
+@media (min-width: 1400px) { /* Tamaño de pantalla: Extra extra grande (>= 1400px) */
+  .col-1 {
+      width: 5%; /* Ancho para pantallas grandes */
+    }
+}
+
+/* Estilos generales para las columnas */
+.col-3 {
+  /* Establecer un ancho predeterminado */
+  width: 25%; /* Ancho predeterminado para pantallas pequeñas */
+}
+
+/* Media queries para ajustar el ancho en diferentes tamaños de pantalla */
+@media (min-width: 576px) { /* Tamaño de pantalla: Extra pequeña (>= 576px) */
+  .col-3 {
+    width: 23%; /* Ancho para pantallas medianas */
+  }
+}
+
+@media (min-width: 768px) { /* Tamaño de pantalla: Pequeña (>= 768px) */
+.col-3 {
+    width: 17%; /* Ancho para pantallas grandes */
+  }
+}
+
+@media (min-width: 992px) { /* Tamaño de pantalla: Grande (>= 992px) */
+.col-3 {
+    width: 19%; /* Ancho para pantallas grandes */
+  }
+}
+@media (min-width: 1200px) { /* Tamaño de pantalla: Extra grande (>= 1200px) */
+.col-3 {
+    width: 17%; /* Ancho para pantallas grandes */
+  }
+}
+@media (min-width: 1400px) { /* Tamaño de pantalla: Extra extra grande (>= 1400px) */
+.col-3 {
+    width: 15%; /* Ancho para pantallas grandes */
+  }
+}
+
+.history{
+  text-align: center !important
+}
+
+
+
 
 
