@@ -11,6 +11,7 @@ import { EqualButtonComponent } from './calculator/components/equal-button/equal
 import { WeatherModule } from './weather/weather.module';
 import { HomeComponent } from './home/home.component';
 import { HistoryComponent } from './calculator/components/history/history.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HistoryComponent } from './calculator/components/history/history.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WeatherModule
+    WeatherModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

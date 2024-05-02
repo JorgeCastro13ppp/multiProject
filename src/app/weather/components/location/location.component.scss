@@ -1,0 +1,9 @@
+@import '~node_modules/bootstrap/scss/bootstrap';
+$purple-bootstrap: #712cf9;
+a {
+  color: $purple-bootstrap;
+}
+
+.container-input{
+  width: 50%;
+}

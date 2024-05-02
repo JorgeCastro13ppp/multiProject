@@ -49,3 +49,33 @@ sass --watch ./styles.scss ./styles.css
 ## O utilizar extensión Live Sass Compiler
 ## Utilizar esta ruta para mejor funcionamiento en el style.scss
 @import '../node_modules/bootstrap/scss/bootstrap';
+
+## Para la visualización del mapa utilizaré leaflet
+## Debemos instalarlo usando npm
+npm install leaflet
+
+## Posteriormente lo personalizaré con scss, usando el archivo scss del componente weather/map
+map.component.scss
+
+## En este archivo debemos importar la hoja de estilos de leaflet
+@import '~leaflet/dist/leaflet.css'
+
+## No hay que olvidar que para un funcionamiento correcto de la hoja de estilos hay que modificar el angular.json
+"styles": [
+              "src/styles.scss",
+              "src/weather/components/map/map.component.scss"
+            ],
+
+## Además de los scripts, como hice anteriormente con bootstrap
+"scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "./node_modules/leaflet/dist/leaflet.js"
+            ]
+
+## Instalar los tipos de leaflet
+npm install --save-dev @types/leaflet
+
+## Utilizar archivo de AEMET para el mapa de leaflet
+src/assets/leafMET.js
+
+

@@ -29,7 +29,7 @@ export class CalculatorComponent implements OnInit {
     { label: '1', action: 'number', class: 'btn-secondary' },
     { label: '2', action: 'number', class: 'btn-secondary' },
     { label: '3', action: 'number', class: 'btn-secondary' },
-    { label:'%', action: 'percentage', class: 'btn-primary percentage-button'},
+    { label:'π', action: 'percentage', class: 'btn-primary pi-button'},
     { label: '0', action: 'number', class: 'btn-secondary' },
     { label: '.', action: 'decimal', class: 'btn-secondary point-button' }
   ];
@@ -54,11 +54,15 @@ export class CalculatorComponent implements OnInit {
       this.clearInput();
     }else if (value=='CE'){
       this.clearEntryInput();
+    }else if(value=='π'){
+      // Asignar el valor constante de π al número actual
+    this.currentNumber = Math.PI.toString();
+    this.addToHistory(Math.PI.toString());
     }
      else {
       // Agregar al historial y actualizar el número actual
       this.addToHistory(value);
-      this.addToDisplay(value,currentNumber);
+      this.addToDisplay(value);
     }
   }
 
@@ -68,8 +72,8 @@ export class CalculatorComponent implements OnInit {
     // Puedes emitir un evento aquí para notificar a otros componentes sobre el cambio en el historial
   }
 
-  addToDisplay(value:string,currentNumber:string){
-    if(value==='+'||value==='-'||value==='*'||value==='/'||value==='%'){
+  addToDisplay(value:string){
+    if(value==='+'||value==='-'||value==='*'||value==='/'){
       if(this.currentNumber!==''){
         this.currentNumber= this.previousNumber;
       }
@@ -96,10 +100,18 @@ export class CalculatorComponent implements OnInit {
   clearInput() {
     this.history = [];
     this.currentNumber = '';
+    this.previousNumber='';
+    this.result='';
   }
 
   clearEntryInput(){
-    this.currentNumber='';
+    if (this.currentNumber) {
+      // Eliminar el último carácter del número actual
+      this.currentNumber = this.currentNumber.slice(0, -1);
+      // Elimina el último elemento del historial
+
+    }
+    this.history.pop(); // Elimina el último elemento del historial
   }
 
     constructor() { }
@@ -109,7 +121,7 @@ export class CalculatorComponent implements OnInit {
 
   // Función para determinar la clase de estilo del operador
   // getButtonStyleClass(button: Button): string {
-  //   if (['+', '-', '*', '/', '%'].includes(button.label)) {
+  //   if (['+', '-', '*', '/', √'].includes(button.label)) {
   //     return 'operator';
   //   }
   //   return '';
