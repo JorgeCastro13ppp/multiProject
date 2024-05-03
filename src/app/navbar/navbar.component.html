@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg bg-primary">
+<nav class="navbar navbar-expand-lg bg-primary sticky-top">
   <div class="container-fluid">
     <svg class="i i-microchip" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <rect width="16" height="16" x="4" y="4" rx="2"/>
@@ -13,19 +13,22 @@
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active">Home</a>
+          <a class="nav-link text-white" href="#" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/calculator" routerLinkActive="active">Calculadora</a>
+          <a class="nav-link text-white" href="#" routerLink="/calculator" routerLinkActive="active">Calculadora</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" routerLink="/weather" routerLinkActive="active" routerLink="/weather" routerLinkActive="active">
+        <li class="nav-item dropdown" data-bs-theme="purple">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" routerLink="/weather" routerLinkActive="active" routerLink="/weather" routerLinkActive="active">
             Tiempo
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#" routerLink="weather/map">Mapa</a></li>
             <li><a class="dropdown-item" href="#" routerLink="weather/location">Por ubicación</a></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" routerLink="/countries" routerLinkActive="active">Countries</a>
         </li>
       </ul>
     </div>

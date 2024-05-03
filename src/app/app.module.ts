@@ -12,6 +12,8 @@ import { WeatherModule } from './weather/weather.module';
 import { HomeComponent } from './home/home.component';
 import { HistoryComponent } from './calculator/components/history/history.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CountriesComponent } from './countries/countries.component';
+import { CountriesModule } from './countries/countries.module';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { HttpClientModule } from '@angular/common/http';
     EqualButtonComponent,
     HomeComponent,
     HistoryComponent,
+    CountriesComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     WeatherModule,
+    CountriesModule,
     HttpClientModule
   ],
   providers: [],

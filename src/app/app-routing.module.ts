@@ -5,6 +5,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { MapComponent } from './weather/components/map/map.component';
 import { LocationComponent } from './weather/components/location/location.component';
+import { CountriesComponent } from './countries/countries.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path:'location',component:LocationComponent},
     ]
    },
+  { path:'countries',component:CountriesComponent},
   { path: '**', redirectTo: 'home' }
 ];
 

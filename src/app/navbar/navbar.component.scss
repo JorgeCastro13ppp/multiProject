@@ -3,3 +3,21 @@ svg {
   width: 35px;
 }
 
+$purple-bootstrap: #712cf9;
+$dark-puple-bootstrap: #5b1369;
+[data-bs-theme="purple"] {
+  --bs-body-color: var(--bs-white);
+  --bs-body-color-rgb: #{to-rgb($purple-bootstrap)};
+  --bs-body-bg: var(--bs-blue);
+  --bs-body-bg-rgb: #{to-rgb($dark-puple-bootstrap)};
+  --bs-tertiary-bg: #{$dark-puple-bootstrap};
+  .dropdown-menu {
+    --bs-dropdown-bg: #{$dark-puple-bootstrap};
+
+    // Establecer el color de fondo cuando se hace clic (:active)
+    a.dropdown-item:active {
+      background-color: $purple-bootstrap; // Color morado más oscuro al hacer clic
+    }
+  }
+}
+
