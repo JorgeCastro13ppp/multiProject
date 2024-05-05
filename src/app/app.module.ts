@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CountriesComponent } from './countries/countries.component';
 import { CountriesModule } from './countries/countries.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { CountriesModule } from './countries/countries.module';
     HomeComponent,
     HistoryComponent,
     CountriesComponent,
+
 
   ],
   imports: [

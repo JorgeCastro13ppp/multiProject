@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LocationComponent } from './components/location/location.component';
-import { MapComponent } from './components/map/map.component';
+import { CardWeatherComponent } from './components/card-weather/card-weather.component';
+
 
 
 
 @NgModule({
   declarations: [
-    MapComponent,
-    LocationComponent,
+  
+    CardWeatherComponent
   ],
   imports: [
     CommonModule

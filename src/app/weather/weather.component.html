@@ -1,2 +1,35 @@
 https://opendata.aemet.es/opendata/api/observacion/convencional/todas<br/>?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXN0cm9qb3JnZWxlb25hcmRvY0BnbWFpbC5jb20<br/>iLCJqdGkiOiI1MjZhNjJjYy0zYzY1LTRlMTMtODVjNS1mMTJmOTBmOWY0ZGIiLCJpc3MiOiJBRU1F<br/>VCIsImlhdCI6MTcxNDY0NDM1MiwidXNlcklkIjoiNTI2YTYyY2MtM2M2NS00ZTEz<br/>LTg1YzUtZjEyZjkwZjlmNGRiIiwicm9sZSI6IiJ9.gHFJ1fcQx-UDDCz2vzsRoYUnqid3V-pa-XTjOHklU6I
 <router-outlet></router-outlet>
+
+<!-- <div class="container container-input">
+  <div class="row">
+    <div class="col-9">
+      <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Municipio</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Introduce municipio">
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Tiempo semanal</h2>
+      <div class="card mt-3" *ngFor="let day of daysOfWeek">
+        <div class="card-header">
+          <h4 class="title">{{day}}</h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            Información
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer text-center mb-2 mt-2">
+    <p>© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma</p>
+    <a href="https://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/Manual_de_uso_de_terminos_met_2023">Nota legal - Web</a>
+  </div>
+</div>
