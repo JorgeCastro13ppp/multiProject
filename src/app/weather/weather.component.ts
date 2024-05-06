@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Dia } from './interfaces/dias.interface';
-import { LocationServiceService } from './services/location-service.service';
+import { WeatherService } from './services/weather.service';
+import { RespuestaApi } from './interfaces/api.interface';
 
 @Component({
   selector: 'app-weather',
@@ -9,21 +9,19 @@ import { LocationServiceService } from './services/location-service.service';
 })
 export class WeatherComponent implements OnInit {
 
-  daysOfWeek = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-  // apiData?:ApiCall;
-  dayData?:Dia;
-  constructor(private locationService:LocationServiceService) { }
+  dataUrl?:string;
+  weatherData?:RespuestaApi;
+
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.locationService.fetchApi().subscribe(
-      (day:Dia)=>{
-        this.dayData = day;
-        console.log('Day data:', this.dayData );
-      },
-      (error)=>{
-        console.error('Error fetching API data',error);
-      }
-    );
+    this.weatherService.getApiData().subscribe((data) => {
+      this.weatherData = data;
+      this.dataUrl = data.datos;
+    });
   }
 
-}
+
+  }
+
+
