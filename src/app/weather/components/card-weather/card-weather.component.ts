@@ -11,17 +11,11 @@ export class CardWeatherComponent implements OnInit {
 
   @Input() dataUrl?:string;
 
-  origen?:Origen;
-
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.weatherService.getOrigen(this.dataUrl).subscribe((origen)=>{
-      this.origen = origen;
-    })
 
   }
-
 
 
 }

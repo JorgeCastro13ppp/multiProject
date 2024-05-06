@@ -13,11 +13,9 @@ $dark-puple-bootstrap: #5b1369;
   --bs-tertiary-bg: #{$dark-puple-bootstrap};
   .dropdown-menu {
     --bs-dropdown-bg: #{$dark-puple-bootstrap};
-
-    // Establecer el color de fondo cuando se hace clic (:active)
-    a.dropdown-item:active {
-      background-color: $purple-bootstrap; // Color morado más oscuro al hacer clic
-    }
   }
 }
 
+a {
+  font-family: 'Roboto', sans-serif;
+}

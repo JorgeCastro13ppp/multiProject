@@ -9,10 +9,9 @@ import { Origen } from '../interfaces/data.interface';
 })
 export class WeatherService {
 
-
   private dataUrl:string = '';
   private apiUrl = 'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/10037'; // reemplaza con la URL real
-  private token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXN0cm9qb3JnZWxlb25hcmRvY0BnbWFpbC5jb20iLCJqdGkiOiI2YTk5NjE2Yi01YzE1LTQ5YjktOWE1Ny1jYWZiYTFlYWMxMWIiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTcxNDk3ODQ4MSwidXNlcklkIjoiNmE5OTYxNmItNWMxNS00OWI5LTlhNTctY2FmYmExZWFjMTFiIiwicm9sZSI6IiJ9.viyoo6F-0nFfT4Pa1WLgD-HIqqpsc4QuIbMZt1hAjJs'; // reemplaza con el token real
+  private token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXN0cm9qb3JnZWxlb25hcmRvY0BnbWFpbC5jb20iLCJqdGkiOiJmMjk1NTJmMi1jODAzLTQwZjQtODU3OS1lYzY2MzRlZTNjYTQiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTcxNTAyNDIxNCwidXNlcklkIjoiZjI5NTUyZjItYzgwMy00MGY0LTg1NzktZWM2NjM0ZWUzY2E0Iiwicm9sZSI6IiJ9.jI65lax042rURIzqOWqAUQEQmJEaLffpwAZd79KAYLc'; // reemplaza con el token real
 
   constructor(private http: HttpClient) { }
 
@@ -28,15 +27,3 @@ export class WeatherService {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
