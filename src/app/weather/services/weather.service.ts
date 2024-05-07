@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { API, List } from '../interfaces/api.interface';
 
-
+// private apiUrl = 'https://api.openweathermap.org/data/2.5/forecast';
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
   private apiKey = 'db674ac2cea703bd2214a511a5fb469d';
-  private apiUrl = 'https://api.openweathermap.org/data/2.5/forecast';
+  private apiUrl = '';
 
   constructor(private http: HttpClient) { }
 

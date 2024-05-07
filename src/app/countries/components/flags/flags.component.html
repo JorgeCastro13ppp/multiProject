@@ -1,0 +1,19 @@
+<p>flags works!</p>
+
+  <!-- {{apiFlags | json}} -->
+  <div class="d-flex flex-wrap">
+
+      <div class="col-md-1" *ngFor="let country of apiFlags; let i = index">
+        <img [src]="country.flags.png" class="img-fluid" alt="" (click)="openModal(country)">
+        <div class="w-100" *ngIf="(i + 1) % 10 == 0"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
