@@ -3,12 +3,31 @@
   <!-- {{apiFlags | json}} -->
   <div class="d-flex flex-wrap">
 
-      <div class="col-md-1" *ngFor="let country of apiFlags; let i = index">
-        <img [src]="country.flags.png" class="img-fluid" alt="" (click)="openModal(country)">
+      <div class="col-md-1" *ngFor="let country of apiFlags; let i = index" >
+        <img [src]="country.flags.png" class="img-fluid" alt="" (click)="openModal(country.ccn3)">
         <div class="w-100" *ngIf="(i + 1) % 10 == 0"></div>
-
+        {{country.ccn3}}
     </div>
   </div>
+
+  <ng-template #modalContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title"> apiCountries.name.official </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Capital:  apiCountries.capital </p>
+      <p>Area:  apiCountries.area  m2</p>
+      <!-- ... -->
+    </div>
+  </ng-template>
+
+
+
+
+
 
 
 
