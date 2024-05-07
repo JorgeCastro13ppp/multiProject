@@ -46,5 +46,15 @@ export class WeatherComponent implements OnInit {
       },);
   }
 
+  getBackgroundImage(pop: number): string {
+    if (pop * 100 <= 29) {
+      return 'url(../../assets/sun.png)';
+    } else if (pop *100 <= 60) {
+      return 'url(../../assets/cloud2.jfif)';
+    } else {
+      return 'url(../../assets/rain.png)';
+    }
+  }
+
 
 }
