@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './services/weather.service';
-import { RespuestaApi } from './interfaces/api.interface';
 
 @Component({
   selector: 'app-weather',
@@ -8,19 +7,24 @@ import { RespuestaApi } from './interfaces/api.interface';
   styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent implements OnInit {
+  currentDate: string;
+  dailyForecasts: any[] = [];
 
-  dataUrl?:string;
-  weatherData?:RespuestaApi;
-
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService) {
+    const currentDateObj = new Date();
+    this.currentDate = currentDateObj.toLocaleDateString('es-ES'); // Formato 'dd/mm/aa'
+  }
 
   ngOnInit(): void {
-    this.weatherService.getApiData().subscribe((data) => {
-      this.weatherData = data;
-      this.dataUrl = data.datos;
-    });
+    this.loadWeeklyForecast('Caceres,ES'); // Cambia la ciudad según necesites
   }
 
+  loadWeeklyForecast(city: string): void {
+    this.weatherService.getWeeklyForecast(city)
+      .subscribe(forecasts => {
+        this.dailyForecasts = forecasts;
+      });
   }
 
 
+}

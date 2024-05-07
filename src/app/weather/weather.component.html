@@ -1,28 +1,19 @@
-<p>Primera llamada api: {{weatherData | json}}</p>
-<p>Datos URL: {{dataUrl}}</p>
+<div class="container mt-4">
+  <h1> Predicción Cáceres: {{ currentDate }}</h1>
 
-<router-outlet></router-outlet>
-
-<!-- <div class="container container-input">
   <div class="row">
-    <div class="col-9">
-      <div class="input-group input-group-lg">
-        <span class="input-group-text" id="inputGroup-sizing-lg">Municipio</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Introduce municipio">
+    <div class="col-md-4 mb-4" *ngFor="let forecast of dailyForecasts">
+      <div class="card">
+        <div class="card-header">
+          <span>{{forecast.date}}</span>
+        </div>
+        <div class="card-body">
+          <p>Probabilidad de Lluvia: {{ forecast.rainProbability }}%</p>
+          <p>Dirección del Viento: {{ forecast.windDirection }}</p>
+          <p>Temperatura Mínima: {{ forecast.tempMin }}°C</p>
+          <p>Temperatura Máxima: {{ forecast.tempMax }}°C</p>
+        </div>
       </div>
     </div>
   </div>
-</div> -->
-
-
-<div class="container">
-
-  <app-card-weather></app-card-weather>
-
-  <div class="footer text-center mb-2 mt-2">
-    <p>© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma</p>
-    <a href="https://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/Manual_de_uso_de_terminos_met_2023">Nota legal - Web</a>
-  </div>
 </div>
-
-

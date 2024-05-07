@@ -29,7 +29,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/home.jpg"
+              "src/assets/home.jpg",
+              "src/assets/home2.jpg",
+              "src/assets/sunny.svg",
+              "src/assets/cloudy.svg",
+              "src/assets/rainy.svg"
             ],
             "styles": [
               "src/styles.scss"

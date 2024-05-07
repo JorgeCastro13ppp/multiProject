@@ -1,29 +1,55 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RespuestaApi } from '../interfaces/api.interface';
-import { Observable, tap } from 'rxjs';
-import { Origen } from '../interfaces/data.interface';
+import { Observable, map } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-
-  private dataUrl:string = '';
-  private apiUrl = 'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/10037'; // reemplaza con la URL real
-  private token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjYXN0cm9qb3JnZWxlb25hcmRvY0BnbWFpbC5jb20iLCJqdGkiOiJmMjk1NTJmMi1jODAzLTQwZjQtODU3OS1lYzY2MzRlZTNjYTQiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTcxNTAyNDIxNCwidXNlcklkIjoiZjI5NTUyZjItYzgwMy00MGY0LTg1NzktZWM2NjM0ZWUzY2E0Iiwicm9sZSI6IiJ9.jI65lax042rURIzqOWqAUQEQmJEaLffpwAZd79KAYLc'; // reemplaza con el token real
+  private apiKey = 'db674ac2cea703bd2214a511a5fb469d';
+  private apiUrl = 'https://api.openweathermap.org/data/2.5/forecast';
 
   constructor(private http: HttpClient) { }
 
-  getApiData(): Observable<RespuestaApi> {
-    return this.http.get<RespuestaApi>(this.apiUrl+'?api_key='+this.token);
-  }
-  setDataUrl(dataUrl: string): void {
-    this.dataUrl = dataUrl;
+  getWeeklyForecast(city: string): Observable<any[]> {
+    const url = `${this.apiUrl}?q=${city}&appid=${this.apiKey}&units=metric`;
+
+    return this.http.get<any>(url).pipe(
+      map(response => this.parseForecastData(response))
+    );
   }
 
-  getOrigen(dataUrl:string|undefined): Observable<Origen> {
-    return this.http.get<Origen>(this.dataUrl);
+  private parseForecastData(data: any): any[] {
+    const dailyForecasts: any[] = [];
+
+    const dailyData = data.list.filter((item: any, index: number) => index % 8 === 0);
+
+    dailyData.forEach((item: any) => {
+      const date = new Date(item.dt * 1000);
+      const dayName = date.toLocaleString('es-ES', { weekday: 'long' });
+      const dayNumber = date.getDate();
+      const monthName = date.toLocaleString('es-ES', { month: 'long' });
+
+      const forecast = {
+        date: `${dayName} - ${dayNumber} ${monthName}`,
+        rainProbability: item.pop * 100,
+        windDirection: this.getWindDirection(item.wind.deg),
+        tempMin: item.main.temp_min,
+        tempMax: item.main.temp_max
+      };
+
+      dailyForecasts.push(forecast);
+    });
+
+    return dailyForecasts;
+  }
+
+  private getWindDirection(degree: number): string {
+    const directions = ['Norte', 'Noreste', 'Este', 'Sureste', 'Sur', 'Suroeste', 'Oeste', 'Noroeste'];
+    const index = Math.round((degree % 360) / 45);
+    return directions[index % 8];
   }
 
 }
+
