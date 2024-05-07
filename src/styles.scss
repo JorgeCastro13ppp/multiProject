@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 $purple-bootstrap: #712cf9;
@@ -53,13 +53,11 @@ $purple-bootstrap: #712cf9;
 
 /* Estilos generales para las columnas */
 .col-1 {
-    /* Establecer un ancho predeterminado */
     width: 10%; /* Ancho predeterminado para pantallas pequeñas */
   }
-/* Estilos generales para las columnas */
+
 .col-3 {
-  /* Establecer un ancho predeterminado */
-  width: 25%; /* Ancho predeterminado para pantallas pequeñas */
+  width: 25%;
 }
 
 /* Media queries para ajustar el ancho en diferentes tamaños de pantalla */

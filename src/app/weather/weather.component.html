@@ -1,18 +1,16 @@
-<div class="container mt-4">
-  <h1> Predicción Cáceres: {{ currentDate }}</h1>
-
-  <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let forecast of dailyForecasts">
-      <div class="card">
-        <div class="card-header">
-          <span>{{forecast.date}}</span>
-        </div>
-        <div class="card-body">
-          <p>Probabilidad de Lluvia: {{ forecast.rainProbability }}%</p>
-          <p>Dirección del Viento: {{ forecast.windDirection }}</p>
-          <p>Temperatura Mínima: {{ forecast.tempMin }}°C</p>
-          <p>Temperatura Máxima: {{ forecast.tempMax }}°C</p>
-        </div>
+<h2 class="text-center">Predicción semanal Cáceres: {{currentDate| date: 'dd/MM/yy'}}</h2>
+<div class="row">
+  <div class="col-md-3 mt-4" *ngFor="let forecast of dailyForecasts">
+    <div class="card">
+      <div class="card-header">
+         {{forecast.dt_txt | date: 'EEEE, dd'}}
+      </div>
+      <div class="card-body">
+        <p>Temperatura Máxima: {{ forecast.main.temp_max }}°C</p>
+        <p>Temperatura Mínima: {{ forecast.main.temp_min }}°C</p>
+        <p>Probabilidad de Lluvia: {{ forecast.pop *100 }}%</p>
+        <p>Dirección del Viento: {{ forecast.wind.direction }}</p>
+        <p>Humedad: {{ forecast.main.humidity }}%</p>
       </div>
     </div>
   </div>
