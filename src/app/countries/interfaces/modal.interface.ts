@@ -1,5 +1,5 @@
 export interface Country {
-  name:         Name[];
+  name:         Name;
   tld:          string[];
   cca2:         string;
   ccn3:         string;
@@ -10,7 +10,7 @@ export interface Country {
   unMember:     boolean;
   currencies:   Currencies;
   idd:          Idd;
-  capital:      string[];
+  capital:      string;
   altSpellings: string[];
   region:       string;
   subregion:    string;
@@ -50,10 +50,10 @@ export interface CoatOfArms {
 }
 
 export interface Currencies {
-  COP: Cop;
+  nzd: Nzd;
 }
 
-export interface Cop {
+export interface Nzd {
   name:   string;
   symbol: string;
 }
@@ -84,7 +84,7 @@ export interface Idd {
 }
 
 export interface Languages {
-  spa: string;
+  [key:string] :string;
 }
 
 export interface Maps {

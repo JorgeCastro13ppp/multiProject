@@ -13,8 +13,8 @@ export class ModalService {
 
   constructor(private http: HttpClient) { }
 
-   getModalCountries(ccn3:string):Observable<Country[]>{
-    return this.http.get<Country[]>(`${this.urlModalCountries}${ccn3}`);
+   getModalCountries(cca2:string):Observable<Country[]>{
+    return this.http.get<Country[]>(`${this.urlModalCountries}${cca2}`);
    }
 
   }

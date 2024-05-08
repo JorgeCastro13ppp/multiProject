@@ -1,5 +1,35 @@
 
 img {
   width: 100px;
+  height: 60px;
+}
+
+.info-country-text {font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+}
+.info-country-name {font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #000000;
+}
+
+ /* Estilo personalizado para la lista anidada */
+ .nested-list {
+  margin-left: 20px; /* Ajusta el margen izquierdo para la tabulación */
+}
+.nested-list li {
+  list-style-type: square; /* Cambia el tipo de viñeta a cuadrado */
+  color: #000000; /* Cambia el color de las viñetas */
+}
+
+.modal-body img{
+  width: 100%;
   height: auto;
+}
+
+p{
+  font-style: italic;
+  font-size: 20px;
 }

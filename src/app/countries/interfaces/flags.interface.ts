@@ -1,7 +1,10 @@
 export interface API {
   flags: Flags;
   name:  Name;
+  cca2:  string;
   ccn3:  string;
+  cca3:  string;
+  cioc:  string;
 }
 
 export interface Flags {
