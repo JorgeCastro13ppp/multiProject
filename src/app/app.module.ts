@@ -16,6 +16,7 @@ import { CountriesModule } from './countries/countries.module';
 import { DisplayComponent } from './calculator/components/display/display.component';
 import { EqualButtonComponent } from './calculator/components/equal-button/equal-button.component';
 import { HistoryComponent } from './calculator/components/history/history.component';
+import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalities.component';
 
 
 
@@ -30,6 +31,7 @@ import { HistoryComponent } from './calculator/components/history/history.compon
     NavbarComponent,
     HomeComponent,
     CountriesComponent,
+    GeoMunicipalitiesComponent,
   ],
   imports: [
     BrowserModule,
