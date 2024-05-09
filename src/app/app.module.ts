@@ -17,6 +17,7 @@ import { DisplayComponent } from './calculator/components/display/display.compon
 import { EqualButtonComponent } from './calculator/components/equal-button/equal-button.component';
 import { HistoryComponent } from './calculator/components/history/history.component';
 import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalities.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -38,7 +39,8 @@ import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalit
     AppRoutingModule,
     WeatherModule,
     CountriesModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
