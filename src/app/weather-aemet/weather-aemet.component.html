@@ -41,9 +41,9 @@
                 <td>{{ period.periodo }}</td>
                 <td>{{ period.value }}%</td>
                 <td *ngFor="let period of day.estadoCielo |slice: 0:4">{{ period.descripcion }}</td>
-                <td *ngFor="let period of day.viento">{{ period.direccion }}</td>
-                <td *ngFor="let period of day.viento">{{ period.velocidad }} km/h</td>
-               <td *ngFor="let period of day.temperatura.dato">{{ period.value }}ºC</td>
+                <td *ngFor="let period of day.viento |slice: 0:4">{{ period.direccion }}</td>
+                <td *ngFor="let period of day.viento |slice: 0:4">{{ period.velocidad }} km/h</td>
+                <td *ngFor="let period of day.temperatura.dato |slice: 0:4">{{ period.value }}ºC</td>
 
               </tr>
             </tbody>
