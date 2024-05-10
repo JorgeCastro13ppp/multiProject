@@ -5,11 +5,12 @@ import { WeatherComponent } from './weather/weather.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CountriesComponent } from './countries/countries.component';
 import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalities.component';
+import { WeatherAemetComponent } from './weather-aemet/weather-aemet.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'calculator', component: CalculatorComponent },
-  { path: 'weather', component: WeatherComponent },
+  { path: 'weather-aemet', component: WeatherAemetComponent },
   { path:'countries',component:CountriesComponent },
   {path:'geoMunicipalities',component:GeoMunicipalitiesComponent},
   { path: '**', redirectTo: 'home' }

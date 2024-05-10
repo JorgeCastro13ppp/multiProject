@@ -1,0 +1,64 @@
+
+<!-- {{apiAemet|json}}
+{{dataApi|json}} -->
+
+<div class="container text-center" *ngFor="let datos of dataApi">
+  <h1>Municipio: {{datos?.nombre}}</h1>
+  <h2>Código de municipio: {{datos?.id}}</h2>
+</div>
+
+<div class="container container-cards">
+  <div class="row">
+    <div class="col-12" *ngFor="let day of dayData">
+      <div class="card m-2">
+        <div class="card-body">
+
+          <h5 class="card-title">{{ day.fecha | date: 'EEEE - dd' : 'es' }}</h5>
+          <img [src]="getBackgroundImage(day)" alt="">
+          <ul>
+            <li>Probabilidad lluvia: {{day.probPrecipitacion[0].value}} %</li>
+            <li>Temperatura máxima: {{ day.temperatura.maxima }}°C</li>
+            <li>Temperatura mínima: {{ day.temperatura.minima }}°C</li>
+            <li>Sensación térmica: {{day.sensTermica.maxima}}</li>
+            <li>Sensación térmica: {{day.sensTermica.minima}}</li>
+            <li>Índice ultravioleta máximo: {{day.uvMax}}</li>
+          </ul>
+
+          <table class="table table-sm table-striped w-100">
+            <thead>
+              <tr>
+                <th>Periodo</th>
+                <th>Prob. Precipitación</th>
+                <th>Estado del Cielo</th>
+                <th>Dirección Viento</th>
+                <th>Velocidad Viento</th>
+                <th>Temperatura</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let period of day.probPrecipitacion |slice: 0:4 ">
+
+                <td>{{ period.periodo }}</td>
+                <td>{{ period.value }}%</td>
+                <td *ngFor="let period of day.estadoCielo |slice: 0:4">{{ period.descripcion }}</td>
+                <td *ngFor="let period of day.viento">{{ period.direccion }}</td>
+                <td *ngFor="let period of day.viento">{{ period.velocidad }} km/h</td>
+               <td *ngFor="let period of day.temperatura.dato">{{ period.value }}ºC</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer text-center">
+  <p>© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma. </p>
+</div>

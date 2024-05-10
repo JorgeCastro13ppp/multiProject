@@ -18,6 +18,7 @@ import { EqualButtonComponent } from './calculator/components/equal-button/equal
 import { HistoryComponent } from './calculator/components/history/history.component';
 import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalities.component';
 import { FormsModule } from '@angular/forms';
+import { WeatherAemetComponent } from './weather-aemet/weather-aemet.component';
 
 
 
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HomeComponent,
     CountriesComponent,
+    WeatherAemetComponent,
     GeoMunicipalitiesComponent,
   ],
   imports: [
