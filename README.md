@@ -79,3 +79,11 @@ npm install --save-dev @types/leaflet
 src/assets/leafMET.js
 
 
+## Arreglar navbar con scroll y fixed
+
+## Arreglar calculadora cuando se introduzca otro número después del resultado que se borre resultado
+
+## Arreglar weather, interpretar datos y mostrar imágemnes y gifs
+
+## Arreglar dependencias, eliminar dependencias que no se usen
+
