@@ -79,7 +79,7 @@ npm install --save-dev @types/leaflet
 src/assets/leafMET.js
 
 
-## Arreglar navbar con scroll y fixed
+## Arreglar navbar(fixed) 
 
 ## Arreglar calculadora cuando se introduzca otro número después del resultado que se borre resultado
 
