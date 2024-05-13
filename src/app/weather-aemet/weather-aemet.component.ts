@@ -42,20 +42,16 @@ export class WeatherAemetComponent implements OnInit {
     );
   }
 
-   getBackgroundImage(day: any): string {
+  getBackgroundImage(day: any): string {
     const probPrecipitacion = day.probPrecipitacion[0].value;
     if (probPrecipitacion <= 20) {
-      return '../../assets/sun.png';
+      return '../../assets/amcharts_weather_icons_1.0.0/animated/day.svg';
     } else if (probPrecipitacion <= 60) {
-      return '../../cloud2.jfif';
+      return '../../assets/amcharts_weather_icons_1.0.0/animated/cloudy.svg';
     } else {
-      return '../../assets/rain.png';
+      return '../../assets/amcharts_weather_icons_1.0.0/animated/rainy-7.svg';
     }
-   }
-
-
-
-
+  }
 
 }
 

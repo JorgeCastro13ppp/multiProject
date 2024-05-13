@@ -1,11 +1,14 @@
-.sol {
-  background-image: url('../../assets/sun.png');
+
+.italic {
+  font-style:italic;
+  color: gray;
 }
 
-.nubes {
-  background-image: url('../../assets/cloud2.jfif');
+img{
+  width: 50%;
+  height: auto;
 }
 
-.lluvia {
-  background-image: url('../../assets/rain.png');
+.card-title{
+  align-self: center;
 }

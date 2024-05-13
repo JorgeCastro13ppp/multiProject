@@ -20,6 +20,11 @@ import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalit
 import { FormsModule } from '@angular/forms';
 import { WeatherAemetComponent } from './weather-aemet/weather-aemet.component';
 
+// Para poner la fecha en español
+import { LOCALE_ID } from '@angular/core';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs,'es');
 
 
 @NgModule({
@@ -44,7 +49,10 @@ import { WeatherAemetComponent } from './weather-aemet/weather-aemet.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    // Para poner la fecha en español
+    {provide:LOCALE_ID,useValue:'es'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
