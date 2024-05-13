@@ -8,14 +8,65 @@ $dark-puple-bootstrap: #5b1369;
 [data-bs-theme="purple"] {
   --bs-body-color: var(--bs-white);
   --bs-body-color-rgb: #{to-rgb($purple-bootstrap)};
-  --bs-body-bg: var(--bs-blue);
+  --bs-body-bg: #{$purple-bootstrap};
   --bs-body-bg-rgb: #{to-rgb($dark-puple-bootstrap)};
   --bs-tertiary-bg: #{$dark-puple-bootstrap};
+  --bs-dropdown-link-active-bg: #ffffff;
   .dropdown-menu {
     --bs-dropdown-bg: #{$dark-puple-bootstrap};
+    --bs-dropdown-bg: #{$purple-bootstrap};
+    --bs-dropdown-link-active-color: #{$purple-bootstrap} ;
   }
 }
 //position fixed en vez de sticky
 a {
   font-family: 'Roboto', sans-serif;
 }
+
+a:active{
+  color: $purple-bootstrap;
+}
+
+.btn-outline-light {
+  --bs-btn-color: #f8f9fa;
+  --bs-btn-border-color: #f8f9fa;
+  --bs-btn-hover-color: #712cf9;
+  --bs-btn-hover-bg: #f8f9fa;
+  --bs-btn-hover-border-color: #f8f9fa;
+  --bs-btn-focus-shadow-rgb: 248, 249, 250;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #f8f9fa;
+  --bs-btn-active-border-color: #f8f9fa;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #f8f9fa;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #f8f9fa;
+  --bs-gradient: none;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  appearance: none;
+  background-color: #f8f9fa;
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+  border-color: #ffffff;
+}
+
+.form-control::placeholder{
+  color: #712cf9;
+}
+
+

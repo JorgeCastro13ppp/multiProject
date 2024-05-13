@@ -1,19 +1,15 @@
 
 <nav class="navbar navbar-expand-lg bg-primary sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
-    <!-- <svg class="i i-microchip" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> -->
-      <!-- <rect width="16" height="16" x="4" y="4" rx="2"/> -->
-      <!-- <path d="M9 9h6v6H9zm0-8v3m6-3v3M9 20v3m6-3v3m5-14h3m-3 5h3M1 9h3m-3 5h3"/>
-    </svg> -->
     <a class="navbar-brand" href="https://angular.io/docs" title="Angular 14.0.0">
       <img src="../../assets/angular.svg" alt="Logo" width="37" height="32" class="d-inline-block align-top custom-margin-negative">
      <span class="me-2">NGULAR</span>
     </a>
-    <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse" data-bs-theme="dark" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler m-mt-1" type="button" data-bs-toggle="collapse" data-bs-theme="dark" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" data-bs-theme="dark"></span>
     </button>
-    <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarNavDropdown" style="--bs-scroll-height: 200px;">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" style="--bs-scroll-height: 200px;">
+      <ul class="navbar-nav navbar-nav-scroll">
         <li class="nav-item">
           <a class="nav-link text-white" href="#" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
@@ -27,6 +23,21 @@
           <a class="nav-link text-white" href="#" routerLink="/countries" routerLinkActive="active">Countries</a>
         </li>
       </ul>
+      <li class="nav-item d-lg-block d-md-none d-sm-none dropdown ms-1">
+        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Ver más
+        </a>
+        <ul class="dropdown-menu" data-bs-theme="purple">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </li>
+      <form class="d-flex mt-md-1 ms-lg-auto" role="search">
+        <input class="form-control me-2 text-black" type="search" placeholder="Buscar..." aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Buscar</button>
+      </form>
     </div>
   </div>
 </nav>
