@@ -30,6 +30,8 @@ export class WeatherAemetComponent implements OnInit {
               this.prediccionDaily = [item.prediccion];
               this.prediccionDaily.forEach((prediccion)=>{
                 prediccion.dia.forEach((dia)=>{
+
+
                   // this.dayData = [dia];
                   dayDataAux.push(dia);
                 })

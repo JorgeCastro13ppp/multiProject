@@ -11,7 +11,7 @@
 <div class="container container-cards">
 
     <div class="col-12" *ngFor="let day of dayData; let i = index">
-      <div class="card m-2">
+      <div class="card m-3">
         <div class="card-body ">
           <div class="row">
             <div class="col-4 align-items-start" id="imgDataWeather">
@@ -19,7 +19,7 @@
               <h1 class="card-title">{{ day.fecha | date: 'EEEE - dd' : 'es' |titlecase }}</h1>
               <hr>
 
-              <h2>
+              <h2 *ngIf="day.temperatura.dato[i]">
                 <img src="../assets/weather-icons-master/design/fill/animation-ready/thermometer.svg">
                 <span>{{day.temperatura.dato | temperaturaActual : horaActual}}</span> ºC
               </h2>
@@ -45,10 +45,10 @@
                 <div class="col-6">
                   <span>{{day.viento[0].direccion}}</span>
                 </div>
-
+                <hr>
               </div>
-              <hr>
-              <h2>
+
+              <h2 *ngIf="day.humedadRelativa.dato[i]">
                 <img src="../../assets/weather-icons-master/design/fill/animation-ready/humidity.svg" alt=""/>
                 <span>{{day.humedadRelativa.dato | humedadActual : horaActual}}</span> %
               </h2>
@@ -84,32 +84,6 @@
 
             </div>
           </div>
-
-          <table class="table table-sm table-striped w-100">
-            <thead>
-              <tr>
-                <th>Periodo</th>
-                <th>Prob. Precipitación</th>
-                <th>Estado del Cielo</th>
-                <th>Dirección Viento</th>
-                <th>Velocidad Viento</th>
-                <th>Temperatura</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let period of day.probPrecipitacion |slice: 0:4 ">
-
-                <td>{{ period.periodo }}</td>
-                <td>{{ period.value }}%</td>
-                <td *ngFor="let period of day.estadoCielo |slice: 0:4">{{ period.descripcion }}</td>
-                <td *ngFor="let period of day.viento |slice: 0:4">{{ period.direccion }}</td>
-                <td *ngFor="let period of day.viento |slice: 0:4">{{ period.velocidad }} km/h</td>
-                <td *ngFor="let period of day.temperatura.dato |slice: 0:4">{{ period.value }}ºC</td>
-
-              </tr>
-            </tbody>
-          </table>
-
 
 
 
