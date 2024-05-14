@@ -24,6 +24,8 @@ import { WeatherAemetComponent } from './weather-aemet/weather-aemet.component';
 import { LOCALE_ID } from '@angular/core';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { TemperaturaActualPipe } from './weather-aemet/pipes/temp-actual.pipe';
+import { HumedadActualPipe } from './weather-aemet/pipes/hum-actual.pipe';
 registerLocaleData(localeEs,'es');
 
 
@@ -40,6 +42,8 @@ registerLocaleData(localeEs,'es');
     CountriesComponent,
     WeatherAemetComponent,
     GeoMunicipalitiesComponent,
+    TemperaturaActualPipe,
+    HumedadActualPipe
   ],
   imports: [
     BrowserModule,

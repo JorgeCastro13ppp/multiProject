@@ -4,11 +4,79 @@
   color: gray;
 }
 
-img{
+#imgPrincipalWeather img{
+  width: 100%;
+  height: auto;
+}
+
+#imgDataWeather img{
+  width: 33%;
+  height: auto;
+}
+#imgDataWeather h4 p{
+  font-size: small;
+}
+
+#imgDataWeather h2 img{
   width: 50%;
+  height: auto;
+}
+
+
+#imgDataWeather h4 img{
+  width: 50%;
+  height: auto;
+}
+
+#imgSecondaryWeather a{
+  color: #712cf9;
+  font-size: small;
+}
+
+#imgSecondaryWeather img{
+  width: 100%;
+  height: auto;
+}
+
+#directionWind img {
+  width: 100%;
+  height: auto;
+}
+#directionWind span {
+  text-align: center;
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+#humidity img {
+  width: 100%;
   height: auto;
 }
 
 .card-title{
   align-self: center;
+}
+
+.text-purple{
+  color: #712cf9;
+}
+
+.text-orange {
+  color: #EB6000;
+}
+
+.text-blue-1{
+  color: #AAAEFF;
+}
+.text-blue-2{
+  color: #8288FF;
+}
+.text-blue-3{
+  color: #646CFF;
+}
+.text-blue-4{
+  color: #3B45FF;
+}
+.text-blue-5{
+  color: #1622FF;
 }

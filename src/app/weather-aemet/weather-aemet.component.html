@@ -10,27 +10,80 @@
 
 <div class="container container-cards">
 
-    <div class="col-12" *ngFor="let day of dayData">
+    <div class="col-12" *ngFor="let day of dayData; let i = index">
       <div class="card m-2">
-        <div class="card-body text-center">
+        <div class="card-body ">
           <div class="row">
-            <div class="col-4 my-auto">
+            <div class="col-4 align-items-start" id="imgDataWeather">
+
               <h1 class="card-title">{{ day.fecha | date: 'EEEE - dd' : 'es' |titlecase }}</h1>
-              <h2><span class="text-primary">{{day.temperatura.minima}}</span>/<span class="text-danger">{{day.temperatura.maxima}}</span> ºC</h2>
+              <hr>
+
+              <h2>
+                <img src="../assets/weather-icons-master/design/fill/animation-ready/thermometer.svg">
+                <span>{{day.temperatura.dato | temperaturaActual : horaActual}}</span> ºC
+              </h2>
+              <div class="row" id="temperature">
+                <div class="col-6">
+                  <h4>
+                    <img src="../../assets/weather-icons-master/design/line/export/wi_thermometer-colder.svg" alt=""/>
+                    <span class="text-primary">{{day.temperatura.minima}}</span> ºC <br/>
+                  </h4>
+                </div>
+                <div class="col-6">
+                  <h4>
+                    <img src="../../assets/weather-icons-master/design/line/export/wi_thermometer-warmer.svg" alt="">
+                    <span class="text-danger">{{day.temperatura.maxima}}</span> ºC <br/>
+                  </h4>
+                </div>
+              </div>
+              <hr>
+              <div class="row text-center align-items-center" id="directionWind">
+                <div class="col-6">
+                  <img src="../../assets/weather-icons-master/design/line/animation-ready/windsock.svg" alt="">
+                </div>
+                <div class="col-6">
+                  <span>{{day.viento[0].direccion}}</span>
+                </div>
+
+              </div>
+              <hr>
+              <h2>
+                <img src="../../assets/weather-icons-master/design/fill/animation-ready/humidity.svg" alt=""/>
+                <span>{{day.humedadRelativa.dato | humedadActual : horaActual}}</span> %
+              </h2>
+              <div class="row" id="humidity">
+                <div class="col-6">
+                  <h4>
+                    <img src="../../assets/weather-icons-master/design/line/export/wi_humidity-min.svg" alt="" />
+                    <span>{{day.humedadRelativa.minima}}</span> %
+                  </h4>
+                </div>
+                <div class="col-6">
+                  <h4>
+                    <img src="../../assets/weather-icons-master/design/line/export/wi_humidity-max.svg" alt="" />
+                  <span>{{day.humedadRelativa.maxima}}</span> %
+                  </h4>
+                </div>
+              </div>
             </div>
-            <div class="col-8">
+
+            <div class="col-6" id="imgPrincipalWeather">
               <img [src]="getBackgroundImage(day)" alt="" class="">
             </div>
-          </div>
+            <div class="col-2 text-center" id="imgSecondaryWeather">
+                <img [src]="getUvSvg(day.uvMax)" alt=""/> <br/>
+                <a href="https://espanol.epa.gov/espanol/escala-del-indice-uv">Escala del índice UV</a>
+                <hr>
+                <img [src]="getPrecipitationSvg(day.probPrecipitacion[0].value)" alt=""/> <br/>
+                <h4><span [class]="getPrecipitationColor(day.probPrecipitacion[0].value)">{{day.probPrecipitacion[0].value}} </span>%
+                </h4>
+                <hr>
+                <img [src]="getWindSvg(day.viento[0].velocidad)" alt=""> <br/>
+                <h4><span>{{day.viento[0].velocidad}}</span> km/h</h4>
 
-          <ul>
-            <li>Probabilidad lluvia: {{day.probPrecipitacion[0].value}} %</li>
-            <li>Temperatura máxima: {{ day.temperatura.maxima }}°C</li>
-            <li>Temperatura mínima: {{ day.temperatura.minima }}°C</li>
-            <li>Sensación térmica: {{day.sensTermica.maxima}}</li>
-            <li>Sensación térmica: {{day.sensTermica.minima}}</li>
-            <li>Índice ultravioleta máximo: {{day.uvMax}}</li>
-          </ul>
+            </div>
+          </div>
 
           <table class="table table-sm table-striped w-100">
             <thead>
