@@ -7,19 +7,28 @@ h2 {
   text-align: center;
 }
 
-.list-group-item-primary {
+
+.list-group-item-purple {
     --bs-list-group-bg: #712cf9;
     --bs-list-group-border-color: #5b1369;
-    --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+    --bs-list-group-action-hover-color: #ffffff;
     --bs-list-group-action-hover-bg: #5b1369;
-    --bs-list-group-action-active-color: #5b1369;
-    --bs-list-group-action-active-bg: var(--bs-primary-border-subtle);
-    --bs-list-group-active-color: var(--bs-primary-bg-subtle);
-    --bs-list-group-active-bg: var(--bs-primary-text-emphasis);
-    --bs-list-group-active-border-color: var(--bs-primary-text-emphasis);
+    --bs-list-group-action-active-color: #712cf9 !important;
+    --bs-list-group-action-active-bg: #ffffff;
+    --bs-list-group-active-color: #712cf9 !important;
+    --bs-list-group-active-bg: #ffffff;
+    --bs-list-group-active-border-color: #712cf9;
 }
 
-.list-group-item {
+
+
+
+.list-group-item::before {
   color: #ffffff;
 }
+
+.list-group-item::after {
+  color: #712cf9;
+}
+
 
