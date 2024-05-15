@@ -16,8 +16,8 @@ export class AemetService {
 
   constructor(private http: HttpClient) { }
 
-  getApiAemet():Observable<APIAemet>{
-    return this.http.get<APIAemet>(this.urlApiAemet+'10037'+'?api_key='+this.token);
+  getApiAemet(postalCode:string):Observable<APIAemet>{
+    return this.http.get<APIAemet>(this.urlApiAemet+postalCode+'?api_key='+this.token);
   }
 
   getDataApi(urlDataApi:string):Observable<Data[]>{

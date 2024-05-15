@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { WeatherModule } from './weather/weather.module';
@@ -26,6 +27,11 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { TemperaturaActualPipe } from './weather-aemet/pipes/temp-actual.pipe';
 import { HumedadActualPipe } from './weather-aemet/pipes/hum-actual.pipe';
+import { PrecipitacionPipe } from './weather-aemet/pipes/precip-periodo.pipe';
+import { TemperaturaPipe } from './weather-aemet/pipes/temp-period.pipe';
+import { VientoPipe } from './weather-aemet/pipes/viento-period.pipe';
+import { HumedadPipe } from './weather-aemet/pipes/hum-period.pipe';
+
 registerLocaleData(localeEs,'es');
 
 
@@ -43,11 +49,17 @@ registerLocaleData(localeEs,'es');
     WeatherAemetComponent,
     GeoMunicipalitiesComponent,
     TemperaturaActualPipe,
-    HumedadActualPipe
+    HumedadActualPipe,
+    PrecipitacionPipe,
+    TemperaturaPipe,
+    VientoPipe,
+    HumedadPipe,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     WeatherModule,
     CountriesModule,
     HttpClientModule,

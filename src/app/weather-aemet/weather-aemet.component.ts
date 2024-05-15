@@ -15,11 +15,12 @@ export class WeatherAemetComponent implements OnInit {
   prediccionDaily?: Prediccion[];
   dayData:Dia[] = [];
   horaActual = new Date().getHours();
+  postalCode:string = '10037';
 
   constructor(private aemetService:AemetService) { }
 
   ngOnInit(): void {
-    this.aemetService.getApiAemet().subscribe(
+    this.aemetService.getApiAemet(this.postalCode).subscribe(
       api => {
         this.apiAemet = api;
         this.aemetService.getDataApi(this.apiAemet.datos).subscribe(
@@ -34,6 +35,35 @@ export class WeatherAemetComponent implements OnInit {
 
                   // this.dayData = [dia];
                   dayDataAux.push(dia);
+
+                })
+              })
+            })
+
+            this.dayData = dayDataAux;
+          }
+        )
+      }
+    );
+  }
+
+  search():void {
+    this.aemetService.getApiAemet(this.postalCode).subscribe(
+      api => {
+        this.apiAemet = api;
+        this.aemetService.getDataApi(this.apiAemet.datos).subscribe(
+          data => {
+            this.dataApi = data;
+            let dayDataAux:Dia[] = [];
+            data.forEach((item)=>{
+              this.prediccionDaily = [item.prediccion];
+              this.prediccionDaily.forEach((prediccion)=>{
+                prediccion.dia.forEach((dia)=>{
+
+
+                  // this.dayData = [dia];
+                  dayDataAux.push(dia);
+
                 })
               })
             })
@@ -148,6 +178,138 @@ export class WeatherAemetComponent implements OnInit {
       return '../../assets/weather-icons-master/design/line/animation-ready/wind-beaufort-12.svg';
     } else {
       return '../../assets/weather-icons-master/design/line/animation-ready/wind-beaufort-0.svg';
+    }
+  }
+
+  getWindDirectionSvg(value:any):string {
+    switch(value){
+       case value='O':
+        return '../../assets/cardinates/weast.svg';
+        case value='E':
+        return '../../assets/cardinates/east.svg';
+        case value='N':
+        return '../../assets/cardinates/north.svg';
+        case value='S':
+        return '../../assets/cardinates/south.svg';
+        case value='SO':
+        return '../../assets/cardinates/southWeast.svg';
+        case value='SE':
+        return '../../assets/cardinates/southEast.svg';
+        case value='NO':
+        return '../../assets/cardinates/northWeast.svg';
+        case value='NE':
+        return '../../assets/cardinates/northWeast.svg';
+        default:
+        return '../../assets/weather-icons-master/design/fill/export/wi_windsock.svg';
+    }
+  }
+
+  getStatusSky(value:any):string {
+    switch(value){
+      case value = 'Despejado':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/clear-day.svg';
+        case value = 'Despejado noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/clear-night.svg';
+        case value = 'Poco nuboso':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day.svg';
+        case value = 'Poco nuboso noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night.svg';
+        case value = 'Intervalos nubosos':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day.svg';
+        case value = 'Intervalos nubosos noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night.svg';
+        case value = 'Nuboso':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-day.svg';
+        case value = 'Nuboso noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night.svg';
+        case value = 'Muy nuboso':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast.svg';
+        case value = 'Cubierto':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast.svg';
+        case value = 'Nubes altas':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-day.svg';
+        case value = 'Nubes altas noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night.svg';
+        case value = 'Intervalos nubosos con lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-drizzle.svg';
+        case value = 'Intervalos nubosos con lluvia escasa noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-drizzle.svg';
+        case value = 'Nuboso con lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-drizzle.svg';
+        case value = 'Nuboso con lluvia escasa noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-drizzle.svg';
+        case value = 'Muy nuboso con lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/drizzle.svg';
+        case value = 'Cubierto con lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/drizzle.svg';
+        case value = 'Intervalos nubosos con lluvia':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-rain.svg';
+        case value = 'Intervalos nubosos con lluvia noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-rain.svg';
+        case value = 'Nuboso con lluvia':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-rain.svg';
+        case value = 'Nuboso con lluvia noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-rain.svg';
+        case value = 'Muy nuboso con lluvia':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-rain.svg';
+        case value = 'Cubierto con lluvia':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-rain.svg';
+        case value = 'Intervalos nubosos con nieve escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-snow.svg';
+        case value = 'Intervalos nubosos con nieve escasa noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-snow.svg';
+        case value = 'Nuboso con nieve escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-day-snow.svg';
+        case value = 'Nuboso con nieve escasa noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night-snow.svg';
+        case value = 'Muy nuboso con nieve escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        case value = 'Cubierto con nieve escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        case value = 'Intervalos nubosos con nieve':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-snow.svg';
+        case value = 'Intervalos nubosos con nieve noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-snow.svg';
+        case value = 'Nuboso con nieve':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-day-snow.svg';
+        case value = 'Nuboso con nieve noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night-snow.svg';
+        case value = 'Muy nuboso con nieve':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        case value = 'Cubierto con nieve':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        case value = 'Intervalos nubosos con tormenta':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day.svg';
+        case value = 'Intervalos nubosos con tormenta noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night.svg';
+        case value = 'Nuboso con tormenta':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day-overcast.svg';
+        case value = 'Nuboso con tormenta noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night-overcast.svg';
+        case value = 'Muy nuboso con tormenta':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast.svg';
+        case value = 'Cubierto con tormenta':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast.svg';
+        case value = 'Intervalos nubosos con tormenta y lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day-rain.svg';
+        case value = 'Intervalos nubosos con tormenta y lluvia escasa noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night-rain.svg';
+        case value = 'Nuboso con tormenta y lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg';
+        case value = 'Nuboso con tormenta y lluvia escasa noche':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg';
+        case value = 'Muy nuboso con tormenta y lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast-rain.svg';
+        case value = 'Cubierto con tormenta y lluvia escasa':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast-rain.svg';
+        case value = 'Niebla':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/mist.svg';
+        case value = 'Bruma':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/fog.svg';
+        case value = 'Calima':
+        return '../../assets/weather-icons-master/design/fill/animation-ready/haze.svg';
+        default:
+          return'';
     }
   }
 
