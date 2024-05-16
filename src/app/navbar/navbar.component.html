@@ -1,10 +1,13 @@
 
-<nav class="navbar navbar-expand-lg bg-primary sticky-top" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary navbar-fixed-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="https://angular.io/docs" title="Angular 14.0.0">
       <img src="../../assets/angular.svg" alt="Logo" width="37" height="32" class="d-inline-block align-top custom-margin-negative">
      <span class="me-2">NGULAR</span>
     </a>
+
+
+
     <button class="navbar-toggler m-mt-1" type="button" data-bs-toggle="collapse" data-bs-theme="dark" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" data-bs-theme="dark"></span>
     </button>
@@ -16,20 +19,21 @@
             Home
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link text-white" href="#" routerLink="/calculator" routerLinkActive="active">Calculadora</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link text-white" href="#" routerLink="/weather-aemet" routerLinkActive="active">Tiempo</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link text-white" href="#" routerLink="/countries" routerLinkActive="active">Países</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link text-white" href="#" routerLink="/geoMunicipalities" routerLinkActive="active">Municipios</a>
         </li>
       </ul>
-      <li class="nav-item d-lg-block d-md-none d-sm-none dropdown ms-1">
+
+      <li class="nav-item d-lg-block d-md-none d-sm-none dropdown ms-1" *ngIf="isLoggedIn">
         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Ver más
         </a>
@@ -40,10 +44,24 @@
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </li>
-      <form class="d-flex mt-md-1 ms-lg-auto" role="search">
+
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" #sessionStartRegister *ngIf="!isLoggedIn">
+          <img src="../../assets/sessionFalse.svg" alt="" id="svgSessionFalse" class="align-top"/>
+           <a class="nav-link-custom text-white" href="#" routerLink="/login" routerLinkActive="active" >Iniciar sesión/Registrarse</a>
+        </li>
+        <li class="nav-item" #sessionLogout *ngIf="isLoggedIn">
+          <img src="../../assets/sessionTrue.svg" alt="" id="svgSessionTrue" class="align-top"/>
+          <a class="nav-link-custom text-white" href="#" routerLink="/login" routerLinkActive="active" (click)="logoutNav()" >Cerrar sesión</a>
+          <img src="../../assets/sessionLogOut.svg" alt="" id="svgSessionLogOut" class="align-top"/>
+        </li>
+      </ul>
+
+      <!-- <form class="d-flex mt-md-1 ms-lg-auto" role="search">
         <input class="form-control me-2 text-black" type="search" placeholder="Buscar..." aria-label="Search">
         <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+      </form> -->
     </div>
   </div>
 </nav>

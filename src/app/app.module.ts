@@ -31,6 +31,11 @@ import { PrecipitacionPipe } from './weather-aemet/pipes/precip-periodo.pipe';
 import { TemperaturaPipe } from './weather-aemet/pipes/temp-period.pipe';
 import { VientoPipe } from './weather-aemet/pipes/viento-period.pipe';
 import { HumedadPipe } from './weather-aemet/pipes/hum-period.pipe';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { LoginComponent } from './auth/pages/login/login.component';
+import { RegisterComponent } from './auth/pages/register/register.component';
+import { AuthModule } from './auth/auth.module';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 
 registerLocaleData(localeEs,'es');
 
@@ -54,16 +59,21 @@ registerLocaleData(localeEs,'es');
     TemperaturaPipe,
     VientoPipe,
     HumedadPipe,
+    ErrorPageComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AuthRoutingModule,
     CommonModule,
     WeatherModule,
     CountriesModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AuthModule
   ],
   providers: [
     // Para poner la fecha en español
