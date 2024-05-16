@@ -1,7 +1,7 @@
 <div class="container mt-4 mb-4 text-center">
   <h2>Selecciona una Comunidad Autónoma de <strong>España</strong>  </h2>
   <select [(ngModel)]="selectedCommunity" (ngModelChange)="onSelectCommunity($event)"
-  class="form-select-lg" aria-label="Default select example">
+  class="form-select-lg form-dark-purple" aria-label="Default select example">
     <option selected>Open this select menu</option>
     <option *ngFor="let communitty of apiCommunities?.results" [value]="communitty.acom_code">{{ communitty.acom_name}}</option>
 
@@ -10,7 +10,7 @@
 <div class="container mt-4 mb-4 text-center" *ngIf="selectedCommunity">
   <h2>Selecciona una provincia</h2>
   <select [(ngModel)]="selectedProvince" (ngModelChange)="onSelectProvince($event)"
-   class="form-select-lg" aria-label="Default select example">
+   class="form-select-lg form-dark-purple" aria-label="Default select example">
     <option selected >Open this select menu</option>
     <option *ngFor="let province of apiProvinces?.results" [value]="province.prov_code">{{province.prov_name}}</option>
   </select>
@@ -18,8 +18,8 @@
 
  <div class="container mt-4 mb-4 text-center" *ngIf="selectedProvince">
   <h2>Municipios de la provincia seleccionada</h2>
-    <ul class="col-4 m-auto list-group list-group-numbered" data-bs-spy="scroll">
-      <li *ngFor="let municipality of apiMunicipalities?.results" class="list-group-item list-group-item-action list-group-item-purple">
+    <ul class="col-4 m-auto list-group scrollable-list" data-bs-spy="scroll">
+      <li *ngFor="let municipality of apiMunicipalities?.results" class="list-group-item list-group-item-action list-group-item-dark-purple">
         {{municipality.mun_name}}
       </li>
     </ul>

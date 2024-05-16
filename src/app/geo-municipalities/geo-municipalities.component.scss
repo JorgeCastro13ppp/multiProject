@@ -1,3 +1,7 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+
 $purple-color: #712cf9;
 $purple-dark-color:#5b1369;
 
@@ -8,27 +12,35 @@ h2 {
 }
 
 
-.list-group-item-purple {
-    --bs-list-group-bg: #712cf9;
-    --bs-list-group-border-color: #5b1369;
-    --bs-list-group-action-hover-color: #ffffff;
-    --bs-list-group-action-hover-bg: #5b1369;
-    --bs-list-group-action-active-color: #712cf9 !important;
-    --bs-list-group-action-active-bg: #ffffff;
-    --bs-list-group-active-color: #712cf9 !important;
-    --bs-list-group-active-bg: #ffffff;
-    --bs-list-group-active-border-color: #712cf9;
+.scrollable-list {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
+.form-dark-purple{
+  color: #5b1369;
+  border-color: #5b1369;
+}
 
+.form-dark-purple option:hover{
+  background-color: #5b1369;
+}
 
+.list-group-item-dark-purple{
+  color: #5b1369;
+  border-color: #5b1369;
+}
 
-.list-group-item::before {
+.list-group-item-dark-purple:hover{
   color: #ffffff;
+  border-color: #5b1369;
+  background-color: #5b1369;
 }
 
-.list-group-item::after {
-  color: #712cf9;
+.list-group-item-dark-purple:active{
+  color: #ffffff;
+  border-color: #712cf9;
+  background-color: #712cf9;
 }
 
 
