@@ -1,0 +1,130 @@
+.italic {
+  font-style: italic;
+  color: gray;
+}
+
+#imgPrincipalWeather img {
+  width: 100%;
+  height: auto;
+}
+
+#imgDataWeather img {
+  width: 33%;
+  height: auto;
+}
+
+#imgDataWeather h4 p {
+  font-size: small;
+}
+
+#imgDataWeather h2 img {
+  width: 50%;
+  height: auto;
+}
+
+#imgDataWeather h4 img {
+  width: 50%;
+  height: auto;
+}
+
+#imgSecondaryWeather a {
+  color: #712cf9;
+  font-size: small;
+}
+
+#imgSecondaryWeather img {
+  width: 100%;
+  height: auto;
+}
+
+#directionWind img {
+  width: 100%;
+  height: auto;
+}
+
+#directionWind span {
+  text-align: center;
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+#humidity img {
+  width: 100%;
+  height: auto;
+}
+
+#miniCards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#inputMunicipality:focus {
+  box-shadow: 0 0 0 0.25rem rgba(113, 44, 249, 0.5);
+}
+
+#inputMunicipality {
+  border-color: #712cf9;
+}
+
+.placeholder-custom::-moz-placeholder {
+  color: #712cf9;
+  opacity: 0.6;
+}
+
+.placeholder-custom::placeholder {
+  color: #712cf9;
+  opacity: 0.6;
+}
+
+#button-search-municipality {
+  border-color: #712cf9;
+}
+
+.btn-outline-purple {
+  --bs-btn-color: #712cf9;
+  --bs-btn-border-color: #712cf9;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #712cf9;
+  --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-focus-shadow-rgb: 108, 117, 125;
+  --bs-btn-active-color: #712cf9;
+  --bs-btn-active-bg: #712cf9;
+  --bs-btn-active-border-color: #712cf9;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #712cf9;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #712cf9;
+  --bs-gradient: none;
+}
+
+.card-title {
+  align-self: center;
+}
+
+.text-purple {
+  color: #712cf9;
+}
+
+.text-orange {
+  color: #EB6000;
+}
+
+.text-blue-1 {
+  color: #AAAEFF;
+}
+
+.text-blue-2 {
+  color: #8288FF;
+}
+
+.text-blue-3 {
+  color: #646CFF;
+}
+
+.text-blue-4 {
+  color: #3B45FF;
+}
+
+.text-blue-5 {
+  color: #1622FF;
+}/*# sourceMappingURL=weather-aemet.component.css.map */

@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg bg-primary navbar-fixed-top" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary navbar-fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="https://angular.io/docs" title="Angular 14.0.0">
       <img src="../../assets/angular.svg" alt="Logo" width="37" height="32" class="d-inline-block align-top custom-margin-negative">
@@ -31,6 +31,9 @@
         <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link text-white" href="#" routerLink="/geoMunicipalities" routerLinkActive="active">Municipios</a>
         </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link text-white" href="#" routerLink="/weather-map" routerLinkActive="active">Mapa del tiempo</a>
+        </li>
       </ul>
 
       <li class="nav-item d-lg-block d-md-none d-sm-none dropdown ms-1" *ngIf="isLoggedIn">
@@ -38,7 +41,7 @@
           Ver más
         </a>
         <ul class="dropdown-menu" data-bs-theme="purple">
-          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#" routerLink="/weather-map" routerLinkActive="active">Mapa del tiempo</a></li>
           <li><a class="dropdown-item" href="#">Another action</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="#">Something else here</a></li>

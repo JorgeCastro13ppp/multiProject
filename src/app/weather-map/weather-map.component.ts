@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import * as L from 'leaflet';
+import { MapService } from './services/map.service';
+
 
 @Component({
   selector: 'app-weather-map',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherMapComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mapService:MapService) { }
+
+  ngAfterViewInit(): void {
+  }
 
   ngOnInit(): void {
   }
 
+  /*
+    This function is to load the forecast weather. This will subsrcibe from the
+    publisher of the URL from the Forecast service which returns an observable.
+   */
+    loadForecastWeather() {
+
+     }
+
 }
+
+
+

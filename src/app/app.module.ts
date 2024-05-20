@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
-import { WeatherModule } from './weather/weather.module';
+
 
 import { AppComponent } from './app.component';
-import { WeatherComponent } from './weather/weather.component';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { CalculatorComponent } from './calculator/calculator.component';
@@ -36,6 +36,9 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { RegisterComponent } from './auth/pages/register/register.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+// import { MaterialModule } from './common/material.module';
 
 registerLocaleData(localeEs,'es');
 
@@ -43,7 +46,6 @@ registerLocaleData(localeEs,'es');
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherComponent,
     CalculatorComponent,
     DisplayComponent,
     EqualButtonComponent,
@@ -62,18 +64,18 @@ registerLocaleData(localeEs,'es');
     ErrorPageComponent,
     LoginComponent,
     RegisterComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthRoutingModule,
     CommonModule,
-    WeatherModule,
     CountriesModule,
     HttpClientModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    SharedModule,
+    NoopAnimationsModule
   ],
   providers: [
     // Para poner la fecha en español

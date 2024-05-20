@@ -1,1 +1,14 @@
-/*# sourceMappingURL=calculator.component.css.map */
+.display {
+  background-color: #353232;
+  color: #ffffff;
+  font-size: 1.75em;
+  padding: 10px;
+  text-align: left;
+  height: 150px;
+  width: 33%;
+  border-radius: 10px;
+}
+
+.container {
+  margin-top: 50px !important;
+}/*# sourceMappingURL=calculator.component.css.map */

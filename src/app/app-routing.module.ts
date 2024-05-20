@@ -10,22 +10,18 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { RegisterComponent } from './auth/pages/register/register.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { WeatherMapComponent } from './weather-map/weather-map.component';
 
 const routes: Routes = [
-  { path:'', redirectTo:'home',pathMatch:'full'},
+  { path:'', redirectTo:'home',pathMatch:'full' },
   { path:'login', component:LoginComponent },
   { path:'register', component:RegisterComponent },
   { path: 'home', component: HomeComponent },
-
-
-
-    { path: 'calculator', component: CalculatorComponent },
-    { path: 'weather-aemet', component: WeatherAemetComponent },
-    { path:'countries',component:CountriesComponent },
-    {path:'geoMunicipalities',component:GeoMunicipalitiesComponent},
-
-
-
+  { path: 'calculator', component: CalculatorComponent },
+  { path: 'weather-aemet', component: WeatherAemetComponent },
+  { path:'countries',component:CountriesComponent },
+  { path:'geoMunicipalities',component:GeoMunicipalitiesComponent },
+  { path:'weather-map',component:WeatherMapComponent },
   { path: '**', component: ErrorPageComponent }
 ];
 

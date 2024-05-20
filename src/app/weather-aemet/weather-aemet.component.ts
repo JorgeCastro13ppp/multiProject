@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AemetService } from './services/aemet.service';
 import { APIAemet } from './interfaces/interface.aemet';
 import { Data, Dia, Prediccion } from './interfaces/interface.data';
+import { SpinnerService } from '../shared/services/spinner.service';
 
 @Component({
   selector: 'app-weather-aemet',
@@ -17,9 +18,10 @@ export class WeatherAemetComponent implements OnInit {
   horaActual = new Date().getHours();
   postalCode:string = '10037';
 
-  constructor(private aemetService:AemetService) { }
+  constructor(private aemetService:AemetService,public spinner:SpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.showSpinner();
     this.aemetService.getApiAemet(this.postalCode).subscribe(
       api => {
         this.apiAemet = api;
@@ -41,6 +43,7 @@ export class WeatherAemetComponent implements OnInit {
             })
 
             this.dayData = dayDataAux;
+            this.spinner.hideSpinner();
           }
         )
       }

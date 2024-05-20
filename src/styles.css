@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* You can add global styles to this file, and also import other style files */
 /*!
  * Bootstrap  v5.3.3 (https://getbootstrap.com/)
  * Copyright 2011-2024 The Bootstrap Authors
@@ -11966,10 +11965,184 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.btn-primary {
+  background-color: #712cf9 !important;
+  --bs-btn-border-color: $purple-bootstrap !important;
+}
+
 .bg-primary {
   background-color: #712cf9 !important;
 }
 
 .navbar-brand {
   color: white !important;
+}
+
+.point-button {
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+.multiply-button {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+
+.pi-button {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.add-button {
+  padding-left: 14.5px;
+  padding-right: 14.5px;
+}
+
+.divide-button {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+
+.subtract-button {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+
+.clear-button {
+  padding-left: 15.5px;
+  padding-right: 15.5px;
+}
+
+/* Estilos generales para las columnas */
+.col-1 {
+  width: 10%; /* Ancho predeterminado para pantallas pequeñas */
+}
+
+.col-3 {
+  width: 25%;
+}
+
+/* Media queries para ajustar el ancho en diferentes tamaños de pantalla */
+@media (min-width: 576px) { /* Tamaño de pantalla: Extra pequeña (>= 576px) */
+  .col-1 {
+    width: 9%; /* Ancho para pantallas medianas */
+  }
+  .col-3 {
+    width: 23%; /* Ancho para pantallas medianas */
+  }
+}
+@media (min-width: 768px) { /* Tamaño de pantalla: Pequeña (>= 768px) */
+  .col-1 {
+    width: 8%; /* Ancho para pantallas grandes */
+  }
+  .col-3 {
+    width: 17%; /* Ancho para pantallas grandes */
+  }
+  .btn {
+    padding-left: 17.5px;
+    padding-right: 17.5px;
+  }
+  .btn.clear-entry-button {
+    padding-left: 10.5px;
+    padding-right: 10.5px;
+  }
+  .btn.divide-button {
+    padding-left: 19.5px;
+    padding-right: 19.5px;
+  }
+  .btn.point-button {
+    padding-left: 22.5px;
+    padding-right: 22.5px;
+  }
+  .btn.add-button {
+    padding-left: 16.5px;
+    padding-right: 16.5px;
+  }
+}
+@media (min-width: 992px) { /* Tamaño de pantalla: Grande (>= 992px) */
+  .col-1 {
+    width: 7%; /* Ancho para pantallas grandes */
+  }
+  .col-3 {
+    width: 19%; /* Ancho para pantallas grandes */
+  }
+  .btn {
+    padding-left: 19.5px;
+    padding-right: 19.5px;
+  }
+  .btn.clear-entry-button {
+    padding-left: 12.5px;
+    padding-right: 12.5px;
+  }
+  .btn.divide-button {
+    padding-left: 21.5px;
+    padding-right: 21.5px;
+  }
+  .btn.point-button {
+    padding-left: 24.5px;
+    padding-right: 24.5px;
+  }
+  .btn.add-button {
+    padding-left: 18.5px;
+    padding-right: 18.5px;
+  }
+}
+@media (min-width: 1200px) { /* Tamaño de pantalla: Extra grande (>= 1200px) */
+  .col-1 {
+    width: 6%; /* Ancho para pantallas grandes */
+  }
+  .col-3 {
+    width: 17%; /* Ancho para pantallas grandes */
+  }
+  .btn {
+    padding-left: 21.5px;
+    padding-right: 21.5px;
+  }
+  .btn.clear-entry-button {
+    padding-left: 14.5px;
+    padding-right: 14.5px;
+  }
+  .btn.divide-button {
+    padding-left: 23.5px;
+    padding-right: 23.5px;
+  }
+  .btn.point-button {
+    padding-left: 26.5px;
+    padding-right: 26.5px;
+  }
+  .btn.add-button {
+    padding-left: 20.5px;
+    padding-right: 20.5px;
+  }
+}
+@media (min-width: 1400px) { /* Tamaño de pantalla: Extra extra grande (>= 1400px) */
+  .col-1 {
+    width: 5%; /* Ancho para pantallas grandes */
+  }
+  .col-3 {
+    width: 15%; /* Ancho para pantallas grandes */
+  }
+  .btn {
+    padding-left: 23.5px;
+    padding-right: 23.5px;
+  }
+  .btn.clear-entry-button {
+    padding-left: 16.5px;
+    padding-right: 16.5px;
+  }
+  .btn.divide-button {
+    padding-left: 24.5px;
+    padding-right: 24.5px;
+  }
+  .btn.point-button {
+    padding-left: 26.5px;
+    padding-right: 26.5px;
+  }
+  .btn.add-button {
+    padding-left: 22.5px;
+    padding-right: 22.5px;
+  }
+}
+.history {
+  text-align: center !important;
 }/*# sourceMappingURL=styles.css.map */

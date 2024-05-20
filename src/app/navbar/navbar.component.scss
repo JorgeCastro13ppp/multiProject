@@ -30,6 +30,11 @@ $dark-puple-bootstrap: #5b1369;
     --bs-dropdown-bg: #{$purple-bootstrap};
     --bs-dropdown-link-active-color: #{$purple-bootstrap} ;
   }
+  .dropdown-item.active, .dropdown-item:active {
+    color: var(--bs-dropdown-link-active-color);
+    text-decoration: none;
+    background-color: $dark-puple-bootstrap;
+  }
 }
 //position fixed en vez de sticky
 a {

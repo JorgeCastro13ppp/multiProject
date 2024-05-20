@@ -3,6 +3,7 @@ import { CountriesService } from '../../services/countries.service';
 import { API } from '../../interfaces/flags.interface';
 import { ModalService } from '../../services/modal.service';
 import { Country } from '../../interfaces/modal.interface';
+import { SpinnerService } from 'src/app/shared/services/spinner.service';
 // import { Sanitizer } from '@angular/core';
 // import { DomSanitizer } from '@angular/platform-browser';
 
@@ -17,13 +18,15 @@ export class FlagsComponent implements OnInit {
   apiFlags?:API[];
   apiCountries?:Country[];
 
-  constructor(private countriesService: CountriesService, private modalService:ModalService /*private sanitizer: DomSanitizer*/) {
+  constructor(private countriesService: CountriesService, private modalService:ModalService, public spinner:SpinnerService /*private sanitizer: DomSanitizer*/) {
    }
 
   ngOnInit(): void {
+    this.spinner.showSpinner();
     this.countriesService.getFlagsCountries().subscribe(
       api => {
         this.apiFlags = api;
+        this.spinner.hideSpinner();
       }
     );
 
@@ -31,7 +34,6 @@ export class FlagsComponent implements OnInit {
 
   getInfoModal(cca2:string):void {
     console.log('Click en la bandera!', cca2);
-
     this.modalService.getModalCountries(cca2).subscribe(country=>{
       this.apiCountries = country;
       console.log(country);
