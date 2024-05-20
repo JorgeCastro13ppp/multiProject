@@ -1,5 +1,5 @@
-export interface Button {
-  label: string;
-  action: string;
-  class: string;
+
+export interface Buttons {
+  label:string;
+  value:string;
 }

@@ -1,130 +1,103 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Button } from './interfaces/button.interface';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Buttons } from './interfaces/button.interface';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent  {
 
-  currentNumber: string = ''; // Número actual en el display
-  history: string[] = []; // Historial de acciones (números y operadores)
-  previousNumber: string = ''; // Variable para almacenar el número anterior
-  result:string=''; //Variable para almacenar el resultado
+  buttons:Buttons[] = [
+    {label:'7',value:'7'},
+    {label:'8',value:'8'},
+    {label:'9',value:'9'},
+    {label:'4',value:'4'},
+    {label:'5',value:'5'},
+    {label:'6',value:'6'},
+    {label:'1',value:'1'},
+    {label:'2',value:'2'},
+    {label:'3',value:'3'}
+ ];
 
-  buttons: Button[] = [
-    { label: '+', action: 'add', class: 'btn-primary add-button' },
-    { label: '-', action: 'subtract', class: 'btn-primary subtract-button' },
-    { label: '*', action: 'multiply', class: 'btn-primary multiply-button' },
-    { label: '/', action: 'divide', class: 'btn-primary divide-button' },
-    { label: 'C', action: 'clear', class: 'btn-danger clear-button' },
-    { label: 'CE', action: 'clearEntry', class: 'btn-danger clear-entry-button' },
-    { label: '7', action: 'number', class: 'btn-secondary' },
-    { label: '8', action: 'number', class: 'btn-secondary' },
-    { label: '9', action: 'number', class: 'btn-secondary' },
-    { label: '4', action: 'number', class: 'btn-secondary' },
-    { label: '5', action: 'number', class: 'btn-secondary' },
-    { label: '6', action: 'number', class: 'btn-secondary' },
-    { label: '1', action: 'number', class: 'btn-secondary' },
-    { label: '2', action: 'number', class: 'btn-secondary' },
-    { label: '3', action: 'number', class: 'btn-secondary' },
-    { label:'π', action: 'percentage', class: 'btn-primary pi-button'},
-    { label: '0', action: 'number', class: 'btn-secondary' },
-    { label: '.', action: 'decimal', class: 'btn-secondary point-button' }
-  ];
+ operatorsTop:Buttons[]=[
+    {label:'CE',value:'CE'},
+    {label:'C',value:'C'},
+    {label:'±',value:'±'}
+ ];
 
-  onCalculate() {
-    // Lógica de cálculo aquí usando eval() u otro método seguro
-    let expression= this.history.join('');
-    let resultCalc = eval(expression) ;
-    // Supongamos que el resultado se almacena en una variable 'result'
-    this.result = resultCalc;
-    this.history = [resultCalc];
-    console.log(resultCalc);
+ operatorsRight:Buttons[] = [
+    {label:'/',value:'/'},
+    {label:'*',value:'*'},
+    {label:'-',value:'-'}
+ ];
+
+ numberScreenValue:string='';
+ calcScreenValue:string='';
+ isResult: boolean = false;
+
+ clearAll(){
+  this.numberScreenValue='';
+  this.calcScreenValue='';
+ }
+
+ clearEntry(){
+  this.numberScreenValue='';
+ }
+
+ addSubstract(){
+  if (this.numberScreenValue.charAt(0) === '-') {
+    this.numberScreenValue = this.numberScreenValue.slice(1);
+  } else {
+    this.numberScreenValue = `-${this.numberScreenValue}`;
   }
+ }
 
-  // Función para manejar los clics en los botones
-  onButtonClick(value: string,currentNumber:string) {
-    if (value === '=') {
-      // Calcular el resultado y enviarlo al historial
-      this.calculateResult();
-    } else if (value === 'C') {
-      // Limpiar la entrada actual
-      this.clearInput();
-    }else if (value=='CE'){
-      this.clearEntryInput();
-    }else if(value=='π'){
-      // Asignar el valor constante de π al número actual
-    this.currentNumber = Math.PI.toString();
-    this.addToHistory(Math.PI.toString());
+ handleclick(value:string) {
+  if (value=='+'||value=='-'||value=='*'||value=='/') {
+    console.log('entro en op');
+    this.calcScreenValue += `${this.numberScreenValue} ${value}`;
+    this.numberScreenValue = '';
+  }
+  else if(value=='C'){
+    this.clearAll();
+  }
+  else if(value=='CE'){
+    this.clearEntry();
+  }
+  else if (value=='±'){
+    this.addSubstract();
+  }
+  else if(value=='='){
+    const result = eval(this.calcScreenValue.concat(this.numberScreenValue));
+    this.numberScreenValue= result;
+    this.isResult=true;
+    this.calcScreenValue='';
+  }else if (value=='.'){
+    if(!this.numberScreenValue.includes('.')){
+      this.numberScreenValue+=value;
     }
-     else {
-      // Agregar al historial y actualizar el número actual
-      this.addToHistory(value);
-      this.addToDisplay(value);
-    }
   }
-
-  // Función para agregar al historial
-  addToHistory(value: string) {
-    this.history.push(value);
-    // Puedes emitir un evento aquí para notificar a otros componentes sobre el cambio en el historial
-  }
-
-  addToDisplay(value:string){
-    if(value==='+'||value==='-'||value==='*'||value==='/'){
-      if(this.currentNumber!==''){
-        this.currentNumber= this.previousNumber;
-      }
+  else {
+    if(this.isResult && !isNaN(Number(value))){
+      console.log('entro comporbar resultado');
+      this.numberScreenValue=value;
+      this.isResult=false;
     }else{
-      this.currentNumber+=value;
+      this.numberScreenValue += value;
+      this.numberScreenValue = this.removeLeadingZeros(this.numberScreenValue);
     }
   }
+ }
 
-
-    // Función para calcular el resultado
-    calculateResult() {
-      if (this.currentNumber) {
-        this.history.push(this.currentNumber); // Agregar la última entrada al historial
-        try {
-          const result = eval(this.history.join(' ')); // Calcular el resultado usando eval
-          this.currentNumber = result.toString(); // Mostrar el resultado en el display
-          this.history = []; // Limpiar el historial después del cálculo
-        } catch (error) {
-          console.error('Error al calcular el resultado:', error);
-        }
-      }
+ removeLeadingZeros(value: string): string {
+  const parts = value.split('.');
+  if (parts.length > 1) {
+    parts[0] = parts[0].replace(/^0+/g, '');
+    if (parts[0] === '') {
+      parts[0] = '0';
     }
-
-  clearInput() {
-    this.history = [];
-    this.currentNumber = '';
-    this.previousNumber='';
-    this.result='';
   }
-
-  clearEntryInput(){
-    if (this.currentNumber) {
-      // Eliminar el último carácter del número actual
-      this.currentNumber = this.currentNumber.slice(0, -1);
-      // Elimina el último elemento del historial
-
-    }
-    this.history.pop(); // Elimina el último elemento del historial
-  }
-
-    constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  // Función para determinar la clase de estilo del operador
-  // getButtonStyleClass(button: Button): string {
-  //   if (['+', '-', '*', '/', √'].includes(button.label)) {
-  //     return 'operator';
-  //   }
-  //   return '';
-  // }
-
+  return parts.join('.');
+}
 }

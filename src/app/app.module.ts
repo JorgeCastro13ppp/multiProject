@@ -14,9 +14,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
 import { CountriesModule } from './countries/countries.module';
-import { DisplayComponent } from './calculator/components/display/display.component';
-import { EqualButtonComponent } from './calculator/components/equal-button/equal-button.component';
-import { HistoryComponent } from './calculator/components/history/history.component';
 import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalities.component';
 import { FormsModule } from '@angular/forms';
 import { WeatherAemetComponent } from './weather-aemet/weather-aemet.component';
@@ -47,9 +44,6 @@ registerLocaleData(localeEs,'es');
   declarations: [
     AppComponent,
     CalculatorComponent,
-    DisplayComponent,
-    EqualButtonComponent,
-    HistoryComponent,
     NavbarComponent,
     HomeComponent,
     CountriesComponent,

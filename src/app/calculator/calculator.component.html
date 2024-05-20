@@ -1,31 +1,40 @@
-
-<div class="container">
-  <h2 class="text-center">Calculadora básica</h2>
-  <div class="row justify-content-center">
-    <div class="history">
-      <calculator-history [history]="history"></calculator-history>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="display">
-    <calculator-display [currentNumber]="currentNumber" [previousNumber]="previousNumber" [result]="result"></calculator-display>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <ng-container *ngFor="let button of buttons; let i = index">
-      <div class="col-1 m-1 d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-lg {{ button.class }}"
-        (click)="onButtonClick(button.label,currentNumber)"
-        >{{ button.label }}</button>
+<div class="container-fluid bg-custom">
+  <div class="container pt-1">
+    <h1 class="display-4 text-center mb-2">Calculadora básica</h1>
+    <div class="jumbotron col-xl-4 offset-xl-4 col-md-6 offset-md-3 px-3 py-3 col-xs-12 bg-dark">
+      <div class="input-group input-group-sm col-12 px-0">
+        <input class="form-control text-end rounded-0 border-light" id="calcscreen" type="text"
+        [value]="calcScreenValue" readonly
+        />
       </div>
-      <!-- Cerrar fila y abrir una nueva cada 3 botones -->
-      <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
-    </ng-container>
-  </div>
-  <div class="row justify-content-center">
-    <div class="equal col-3 d-flex justify-content-center mt-1">
-      <calculator-equal-button (click)="onCalculate()" ></calculator-equal-button>
+      <div class="input-group input-group-lg col-12 px-0">
+        <input class="form-control text-end rounded-0 border-light" id="numberscreen" type="text"
+          [value]="numberScreenValue" readonly
+        />
+      </div>
+      <div class="row justify-content-center mt-2" id="firstRow">
+            <button *ngFor="let operatorT of operatorsTop" class="col-2 btn btn-lg btn-danger numbers rounded-0 border-dark" type="button" (click)="handleclick(operatorT.value)"  value={{operatorT.value}}>{{operatorT.label}}</button>
+            <button class="btn btn-lg btn-secondary w-25 numbers rounded-0 border-dark" id="sum" type="button" value="+" (click)="handleclick('+')">+</button>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-7 px-0">
+          <button *ngFor="let button of buttons" class="btn btn-lg btn-secondary col-4 numbers rounded-0 border-dark" type="button" (click)="handleclick(button.value)" value={{button.value}}>{{button.label}}</button>
+          <button class="btn btn-lg btn-secondary col-8 numbers rounded-0 border-dark" type="button" (click)="handleclick('0')">0</button>
+          <button class="btn btn-lg btn-secondary col-4 numbers rounded-0 border-dark" type="button" (click)="handleclick('.')">.</button>
+        </div>
+        <div class="col-2 px-0">
+          <button *ngFor="let operatorR of operatorsRight" class="btn btn-lg btn-secondary operator w-100 rounded-0 border-dark" type="button" (click)="handleclick(operatorR.value)" value={{operatorR.value}}>{{operatorR.label}}</button>
+          <button class="btn btn-lg btn-primary w-100 rounded-0 border-dark" value="=" id="equals" type="button" (click)="handleclick('=')">=</button>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-6 offset-md-3">
+        <p>
+          <a href="https://answers.microsoft.com/es-es/windows/forum/all/funcion-de-los-botones-ms-m-m-mr-mc-ce-y-c-de-la/5caaf4b2-385a-e011-8dfc-68b599b31bf5">¿Cómo funcionan los botones C y CE?</a>
+        </p>
+      </div>
     </div>
   </div>
-
 </div>
