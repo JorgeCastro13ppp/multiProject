@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { WeatherComponent } from './weather/weather.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CountriesComponent } from './countries/countries.component';
 import { GeoMunicipalitiesComponent } from './geo-municipalities/geo-municipalities.component';
