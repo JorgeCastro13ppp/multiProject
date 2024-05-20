@@ -18,7 +18,7 @@ export class FlagsComponent implements OnInit {
   apiFlags?:API[];
   apiCountries?:Country[];
 
-  constructor(private countriesService: CountriesService, private modalService:ModalService, public spinner:SpinnerService /*private sanitizer: DomSanitizer*/) {
+  constructor(private countriesService: CountriesService, private modalService:ModalService, public spinner:SpinnerService, public spinnerModal:SpinnerService /*private sanitizer: DomSanitizer*/) {
    }
 
   ngOnInit(): void {
@@ -33,9 +33,11 @@ export class FlagsComponent implements OnInit {
   }
 
   getInfoModal(cca2:string):void {
+    this.spinnerModal.showSpinner();
     console.log('Click en la bandera!', cca2);
     this.modalService.getModalCountries(cca2).subscribe(country=>{
       this.apiCountries = country;
+      this.spinnerModal.hideSpinner();
       console.log(country);
       // Sanitizar la URL de Google Maps
       // this.apiCountries.forEach(country => {
