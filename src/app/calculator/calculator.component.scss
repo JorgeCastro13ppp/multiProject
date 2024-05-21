@@ -13,3 +13,27 @@ a{
 a:hover{
   color: #5b1369;
 }
+
+@media (min-width: 576px) {
+  .offset-sm-custom {
+      margin-left: 13%;
+  }
+}
+
+@media (min-width: 767px) {
+  .offset-md-custom {
+      margin-left: 21%;
+  }
+}
+
+@media (min-width: 992px) {
+  .offset-lg-custom {
+      margin-left: 29.3%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .offset-xl-custom {
+      margin-left: 33.5%;
+  }
+}
