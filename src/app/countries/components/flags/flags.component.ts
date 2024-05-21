@@ -33,11 +33,9 @@ export class FlagsComponent implements OnInit {
   }
 
   getInfoModal(cca2:string):void {
-    this.spinnerModal.showSpinner();
     console.log('Click en la bandera!', cca2);
     this.modalService.getModalCountries(cca2).subscribe(country=>{
       this.apiCountries = country;
-      this.spinnerModal.hideSpinner();
       console.log(country);
       // Sanitizar la URL de Google Maps
       // this.apiCountries.forEach(country => {

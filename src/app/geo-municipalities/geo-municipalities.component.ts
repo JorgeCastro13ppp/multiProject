@@ -18,6 +18,9 @@ export class GeoMunicipalitiesComponent implements OnInit {
   selectedCommunity?:string;
   selectedProvince?:string;
 
+  isLoadingProvinces?:boolean;
+  isLoadingMunicipalities?:boolean;
+
   apiCommunities?:APIc;
   apiProvinces?:APIp;
   apiMunicipalities?:APIm;
@@ -43,22 +46,22 @@ export class GeoMunicipalitiesComponent implements OnInit {
 
   onSelectCommunity(acomCode:string) {
     console.log(acomCode);
-    this.spinner.showSpinner();
+    this.isLoadingProvinces = true;
     this.geoService.getProvinces(acomCode).subscribe(
       province => {
         this.apiProvinces = province;
-        this.spinner.hideSpinner();
+        this.isLoadingProvinces = false;
       }
     )
   }
 
   onSelectProvince(provCode:string){
     console.log(provCode);
-    this.spinner.showSpinner();
+    this.isLoadingMunicipalities = true;
     this.geoService.getMunicipalities(provCode).subscribe(
       municipality => {
         this.apiMunicipalities = municipality;
-        this.spinner.hideSpinner();
+        this.isLoadingMunicipalities=false;
       }
     )
   }
