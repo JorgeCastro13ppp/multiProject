@@ -11,7 +11,7 @@
 
     </select>
   </div>
-  <app-spinner-material [isLoadingMaterial]="isLoadingProvinces"></app-spinner-material>
+  <app-spinner-bootstrap [isLoadingBootstrap]="isLoadingProvinces"></app-spinner-bootstrap>
   <div class="control" *ngIf="!isLoadingProvinces">
     <div class="container mt-4 mb-4 text-center" *ngIf="selectedCommunity">
       <h2>Selecciona una provincia</h2>
@@ -23,12 +23,13 @@
     </div>
   </div>
 
-   <app-spinner-material [isLoadingMaterial]="isLoadingMunicipalities"></app-spinner-material>
+   <app-spinner-bootstrap [isLoadingBootstrap]="isLoadingMunicipalities"></app-spinner-bootstrap>
    <div class="control" *ngIf="!isLoadingMunicipalities">
     <div class="container mt-4 mb-4 text-center" *ngIf="selectedProvince">
       <h2>Municipios de la provincia seleccionada</h2>
-        <ul class="col-4 m-auto list-group scrollable-list" data-bs-spy="scroll">
-          <li *ngFor="let municipality of apiMunicipalities?.results" class="list-group-item list-group-item-action list-group-item-dark-purple">
+        <ul class="col-8 col-md-6 m-auto list-group scrollable-list" data-bs-spy="scroll">
+          <li *ngFor="let municipality of apiMunicipalities?.results" class="list-group-item list-group-item-action list-group-item-dark-purple"
+            (click)="onSelectMunicipality(municipality.mun_code)">
             {{municipality.mun_name}}
           </li>
         </ul>

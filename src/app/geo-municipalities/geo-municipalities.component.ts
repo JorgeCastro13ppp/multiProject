@@ -4,6 +4,10 @@ import { APIm } from './interfaces/municipalities.interface';
 import { APIc } from './interfaces/communities.interface';
 import { APIp } from './interfaces/provinces.interface';
 import { SpinnerService } from '../shared/services/spinner.service';
+import { MunicipalityService } from './services/municipality.service';
+import { MunicipalityWeatherService } from '../shared/services/municipality-weather.service';
+import { AemetService } from '../weather-aemet/services/aemet.service';
+
 
 @Component({
   selector: 'app-geo-municipalities',
@@ -26,7 +30,9 @@ export class GeoMunicipalitiesComponent implements OnInit {
   apiMunicipalities?:APIm;
 
 
-  constructor(private geoService: GeoService,public spinner:SpinnerService) { }
+  constructor(private geoService: GeoService,public spinner:SpinnerService, private municipalityService:MunicipalityService,private sharedService:MunicipalityWeatherService,
+    private aemet:AemetService
+  ) { }
 
   ngOnInit(): void {
     this.spinner.showSpinner();
@@ -61,9 +67,15 @@ export class GeoMunicipalitiesComponent implements OnInit {
     this.geoService.getMunicipalities(provCode).subscribe(
       municipality => {
         this.apiMunicipalities = municipality;
+        console.log(municipality);
         this.isLoadingMunicipalities=false;
       }
     )
+  }
+
+  onSelectMunicipality(munCode:string){
+    this.municipalityService.navigateToWeather(munCode);
+    console.log(munCode);
   }
 
 

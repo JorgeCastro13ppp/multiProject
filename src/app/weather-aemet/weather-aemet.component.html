@@ -1,5 +1,5 @@
 
-<!-- {{apiAemet|json}}
+ <!-- {{apiAemet|json}}
 {{dataApi|json}} -->
 <app-spinner></app-spinner>
 
@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8 col-sm-10">
         <div class="input-group input-group-lg mb-3">
-          <input [(ngModel)]="postalCode" type="text" class="form-control placeholder-custom" placeholder="Introduce código..." aria-label="Municipality's code" aria-describedby="button-search-municipality" id="inputMunicipality" maxlength="5">
+          <input [(ngModel)]="postalCodeCc" type="text" class="form-control placeholder-custom" placeholder="Introduce código..." aria-label="Municipality's code" aria-describedby="button-search-municipality" id="inputMunicipality" maxlength="5">
           <button (click)="search()" class="btn btn-outline-purple" type="button-search-municipality" id="button-addon2">Buscar</button>
         </div>
       </div>
@@ -163,11 +163,12 @@
                       <div class="card-body">
                         <div class="row">
                           <div class="col-6">
-                            <img [src]="getStatusSky(day.estadoCielo[j].descripcion)" alt="">
+                            <img [src]="getStatusSky(day.estadoCielo[j].descripcion)" alt=""/>
+                            <!-- {{day.estadoCielo[j].descripcion |json}} -->
                           </div>
                           <div class="col-6">
                             <div *ngFor="let dato of period | precipitacionPipe">
-                              <img [src]="getPrecipitationSvg(dato.value)" alt="" />
+                              <img [src]="getPrecipitationSvg(dato.value)" alt=""/>
                             </div>
                           </div>
                         </div>

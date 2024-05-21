@@ -3,6 +3,9 @@ import { AemetService } from './services/aemet.service';
 import { APIAemet } from './interfaces/interface.aemet';
 import { Data, Dia, Prediccion } from './interfaces/interface.data';
 import { SpinnerService } from '../shared/services/spinner.service';
+import { MunicipalityService } from '../geo-municipalities/services/municipality.service';
+import { MunicipalityWeatherService } from '../shared/services/municipality-weather.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-weather-aemet',
@@ -16,13 +19,17 @@ export class WeatherAemetComponent implements OnInit {
   prediccionDaily?: Prediccion[];
   dayData:Dia[] = [];
   horaActual = new Date().getHours();
-  postalCode:string = '10037';
+  postalCodeCc:string = '10037';
 
-  constructor(private aemetService:AemetService,public spinner:SpinnerService) { }
+  constructor(private aemetService:AemetService,public spinner:SpinnerService,private municipality:MunicipalityService,private route: ActivatedRoute) {
+   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params=>{
+      this.postalCodeCc = params['munCode'];
+    })
     this.spinner.showSpinner();
-    this.aemetService.getApiAemet(this.postalCode).subscribe(
+    this.aemetService.getApiAemet(this.postalCodeCc).subscribe(
       api => {
         this.apiAemet = api;
         this.aemetService.getDataApi(this.apiAemet.datos).subscribe(
@@ -51,7 +58,7 @@ export class WeatherAemetComponent implements OnInit {
   }
 
   search():void {
-    this.aemetService.getApiAemet(this.postalCode).subscribe(
+    this.aemetService.getApiAemet(this.postalCodeCc).subscribe(
       api => {
         this.apiAemet = api;
         this.aemetService.getDataApi(this.apiAemet.datos).subscribe(
@@ -222,17 +229,17 @@ export class WeatherAemetComponent implements OnInit {
         case value = 'Intervalos nubosos noche':
         return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night.svg';
         case value = 'Nuboso':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-day.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/overcast-day.svg';
         case value = 'Nuboso noche':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/overcast-night';
         case value = 'Muy nuboso':
         return '../../assets/weather-icons-master/design/fill/animation-ready/overcast.svg';
         case value = 'Cubierto':
         return '../../assets/weather-icons-master/design/fill/animation-ready/overcast.svg';
         case value = 'Nubes altas':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-day.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/cloud-up.svg';
         case value = 'Nubes altas noche':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/cloud-up.svg';
         case value = 'Intervalos nubosos con lluvia escasa':
         return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-drizzle.svg';
         case value = 'Intervalos nubosos con lluvia escasa noche':
@@ -242,9 +249,9 @@ export class WeatherAemetComponent implements OnInit {
         case value = 'Nuboso con lluvia escasa noche':
         return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-drizzle.svg';
         case value = 'Muy nuboso con lluvia escasa':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/drizzle.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/overcast-rain.svg';
         case value = 'Cubierto con lluvia escasa':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/drizzle.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/overcast-rain.svg';
         case value = 'Intervalos nubosos con lluvia':
         return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-rain.svg';
         case value = 'Intervalos nubosos con lluvia noche':
@@ -266,47 +273,47 @@ export class WeatherAemetComponent implements OnInit {
         case value = 'Nuboso con nieve escasa noche':
         return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night-snow.svg';
         case value = 'Muy nuboso con nieve escasa':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/overcast-snow.svg';
         case value = 'Cubierto con nieve escasa':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/overcast-night-snow.svg';
         case value = 'Intervalos nubosos con nieve':
         return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-snow.svg';
         case value = 'Intervalos nubosos con nieve noche':
         return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-snow.svg';
         case value = 'Nuboso con nieve':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-day-snow.svg';
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-snow.svg';
         case value = 'Nuboso con nieve noche':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-night-snow.svg';
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-night-snow.svg';
         case value = 'Muy nuboso con nieve':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        return '../../assets/weather-icons-master/design/fill/animation-ready/partly-cloudy-day-snow.svg';
         case value = 'Cubierto con nieve':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/overcast-snow.svg';
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-snow.svg';
         case value = 'Intervalos nubosos con tormenta':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-day-overcast-rain.svg';
         case value = 'Intervalos nubosos con tormenta noche':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-night-overcast.svg';
         case value = 'Nuboso con tormenta':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day-overcast.svg';
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day-rain.svg';
         case value = 'Nuboso con tormenta noche':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night-overcast.svg';
+        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night-rain.svg';
         case value = 'Muy nuboso con tormenta':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-extreme-rain.svg';
         case value = 'Cubierto con tormenta':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-extreme-rain.svg';
         case value = 'Intervalos nubosos con tormenta y lluvia escasa':
         return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day-rain.svg';
         case value = 'Intervalos nubosos con tormenta y lluvia escasa noche':
         return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night-rain.svg';
         case value = 'Nuboso con tormenta y lluvia escasa':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-day-overcast-rain.svg';
         case value = 'Nuboso con tormenta y lluvia escasa noche':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-night-overcast-rain.svg';
         case value = 'Muy nuboso con tormenta y lluvia escasa':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast-rain.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-extreme-rain.svg';
         case value = 'Cubierto con tormenta y lluvia escasa':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/thunderstorms-overcast-rain.svg';
-        case value = 'Niebla':
-        return '../../assets/weather-icons-master/design/fill/animation-ready/mist.svg';
+        return '../../assets/weather-icons-dev/design/fill/final/thunderstorms-extreme-rain.svg';
+        case value = 'Niebla ':
+        return '../../assets/weather-icons-dev/design/fill/final/mist.svg';
         case value = 'Bruma':
         return '../../assets/weather-icons-master/design/fill/animation-ready/fog.svg';
         case value = 'Calima':

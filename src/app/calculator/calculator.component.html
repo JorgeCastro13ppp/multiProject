@@ -1,17 +1,28 @@
 <div class="container-fluid bg-custom">
   <div class="container pt-1">
     <h1 class="display-4 text-center mb-2">Calculadora básica</h1>
-    <div class="jumbotron col-xl-4 offset-xl-4 col-md-6 offset-md-3 px-3 py-3 col-xs-12 bg-dark">
-      <div class="input-group input-group-sm col-12 px-0">
-        <input class="form-control text-end rounded-0 border-light" id="calcscreen" type="text"
-        [value]="calcScreenValue" readonly
-        />
+    <div class="jumbotron col-xl-4 offset-xl-2 col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 px-3 py-3  bg-dark justify-content-center">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="input-group input-group-sm px-0">
+            <input class="form-control text-end rounded-0 border-light" id="calcscreen" type="text"
+            [value]="calcScreenValue" readonly
+            />
+          </div>
+        </div>
       </div>
-      <div class="input-group input-group-lg col-12 px-0">
-        <input class="form-control text-end rounded-0 border-light" id="numberscreen" type="text"
-          [value]="numberScreenValue" readonly
-        />
+
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="input-group input-group-lg col-12 px-0">
+            <input class="form-control text-end rounded-0 border-light" id="numberscreen" type="text"
+              [value]="numberScreenValue" readonly
+            />
+          </div>
+        </div>
       </div>
+
+
       <div class="row justify-content-center mt-2" id="firstRow">
             <button *ngFor="let operatorT of operatorsTop" class="col-2 btn btn-lg btn-danger numbers rounded-0 border-dark" type="button" (click)="handleclick(operatorT.value)"  value={{operatorT.value}}>{{operatorT.label}}</button>
             <button class="btn btn-lg btn-secondary w-25 numbers rounded-0 border-dark" id="sum" type="button" value="+" (click)="handleclick('+')">+</button>

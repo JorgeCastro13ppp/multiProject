@@ -24,4 +24,6 @@ export class AemetService {
     return this.http.get<Data[]>(urlDataApi);
   }
 
+
+
 }

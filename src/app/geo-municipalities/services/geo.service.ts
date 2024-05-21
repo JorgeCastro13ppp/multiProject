@@ -19,7 +19,7 @@ export class GeoService {
 
 
   getMunicipalities(provCode:string):Observable<APIm>{
-    return this.http.get<APIm>(this.urlMunicipalities+'where=prov_code%3D'+provCode+'&limit=100');
+    return this.http.get<APIm>(this.urlMunicipalities+'refine=prov_code%3A"'+provCode+'"&limit=100');
   }
 
   getProvinces(acomCode:string):Observable<APIp>{
