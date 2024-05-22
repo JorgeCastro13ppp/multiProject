@@ -11,13 +11,13 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn = false;
 
-  constructor(private authService: AuthService,public spinnerNav: SpinnerService) { }
+  constructor(private authService: AuthService /*public spinnerNav: SpinnerService*/) { }
 
   ngOnInit(): void {
-      this.spinnerNav.showSpinner();
+      // this.spinnerNav.showSpinner();
       // this.isLoggedIn = !!this.authService.isLoggedIn();
       this.isLoggedIn = this.authService.isLoggedIn();
-      this.spinnerNav.hideSpinner();
+      // this.spinnerNav.hideSpinner();
   }
 
   logoutNav(): void {

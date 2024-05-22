@@ -16,6 +16,17 @@ html, body {
   box-sizing: border-box;
   animation: grayscaleIn 2s forwards;
 }
+.container-img-logout {
+  padding: 0;
+  margin: 0;
+  background-image: url('../../assets/home3d.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  filter: grayscale(100%);
+}
 //Buscar manera de que se aplique grayScale y si inicia sesión que se inicie la animación
 
 @keyframes zoomIn {
