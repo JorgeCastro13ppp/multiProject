@@ -6,7 +6,7 @@
     <h2>Selecciona una Comunidad Autónoma de <strong>España</strong>  </h2>
     <select [(ngModel)]="selectedCommunity" (ngModelChange)="onSelectCommunity($event)"
     class="form-select-lg form-dark-purple" aria-label="Default select example">
-      <option selected>Open this select menu</option>
+      <!-- <option selected>Open this select menu</option> -->
       <option *ngFor="let communitty of apiCommunities?.results" [value]="communitty.acom_code">{{ communitty.acom_name}}</option>
 
     </select>
@@ -17,7 +17,7 @@
       <h2>Selecciona una provincia</h2>
       <select [(ngModel)]="selectedProvince" (ngModelChange)="onSelectProvince($event)"
        class="form-select-lg form-dark-purple" aria-label="Default select example">
-        <option selected >Open this select menu</option>
+        <!-- <option selected >Open this select menu</option> -->
         <option *ngFor="let province of apiProvinces?.results" [value]="province.prov_code">{{province.prov_name}}</option>
       </select>
     </div>

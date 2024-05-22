@@ -16,7 +16,8 @@
   </div>
 
   <div class="container text-center" *ngFor="let datos of dataApi">
-    <h1>{{datos?.nombre}} ({{datos?.provincia}}), {{datos?.id}}</h1>
+    <h1>{{datos?.nombre}} ({{datos?.provincia}})</h1>
+      <!-- , {{datos?.id}} -->
     <!-- <iframe src="https://www.google.com/maps/embed?origin=mfe&pb=!1m13!1m8!1m3!1d197109.11833042419!2d-6.37121092!3d39.47316762!3m2!1i1024!2i768!4f13.1!2m1!1s39.4731676200,-6.3712109200!5e0!6i11"></iframe> -->
     <h3 class="italic">Predicción elaborada {{datos.elaborado | date: 'dd/MM/yyyy'}} </h3>
   </div>
