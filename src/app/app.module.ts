@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,8 +35,9 @@ import { RegisterComponent } from './auth/pages/register/register.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-// import { MaterialModule } from './common/material.module';
+import { WeatherMapModule } from './weather-map/weather-map.module';
+import { WeatherMapComponent } from './weather-map/weather-map.component';
+
 
 registerLocaleData(localeEs,'es');
 
@@ -58,9 +60,11 @@ registerLocaleData(localeEs,'es');
     ErrorPageComponent,
     LoginComponent,
     RegisterComponent,
+    WeatherMapComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AuthRoutingModule,
     CommonModule,
@@ -69,7 +73,7 @@ registerLocaleData(localeEs,'es');
     FormsModule,
     AuthModule,
     SharedModule,
-    NoopAnimationsModule
+    WeatherMapModule
   ],
   providers: [
     // Para poner la fecha en español

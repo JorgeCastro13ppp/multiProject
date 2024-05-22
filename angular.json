@@ -30,13 +30,11 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/home.jpg",
-              "src/assets/home2.jpg",
-              "src/assets/sunny.svg",
-              "src/assets/cloudy.svg",
-              "src/assets/rainy.svg"
+              "src/assets/home2.jpg"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",

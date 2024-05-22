@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-auto"><button class="btn btn-purple" (click)="showLayer('wind')">Wind</button></div>
+    <div class="col-auto"><button class="btn btn-secondary" (click)="showLayer('clouds')">Clouds</button></div>
+    <div class="col-auto"><button class="btn btn-info" (click)="showLayer('precipitation')">Precipitation</button></div>
+    <div class="col-auto"><button class="btn btn-danger" (click)="showLayer('pressure')">Pressure</button></div>
+    <div class="col-auto"><button class="btn btn-warning" (click)="showLayer('temperature')">Temperature</button></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="map" class="map-container">
+
+      </div>
+    </div>
+  </div>
+</div>

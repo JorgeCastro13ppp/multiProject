@@ -26,35 +26,32 @@ export class WeatherAemetComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params=>{
-      this.postalCodeCc = params['munCode'];
-    })
-    this.spinner.showSpinner();
-    this.aemetService.getApiAemet(this.postalCodeCc).subscribe(
-      api => {
-        this.apiAemet = api;
-        this.aemetService.getDataApi(this.apiAemet.datos).subscribe(
-          data => {
-            this.dataApi = data;
-            let dayDataAux:Dia[] = [];
-            data.forEach((item)=>{
-              this.prediccionDaily = [item.prediccion];
-              this.prediccionDaily.forEach((prediccion)=>{
-                prediccion.dia.forEach((dia)=>{
-
-
-                  // this.dayData = [dia];
-                  dayDataAux.push(dia);
-
+      this.postalCodeCc = params['munCode'] ?? '10037';
+      this.spinner.showSpinner();
+      this.aemetService.getApiAemet(this.postalCodeCc).subscribe(
+        api => {
+          this.apiAemet = api;
+          this.aemetService.getDataApi(this.apiAemet.datos).subscribe(
+            data => {
+              this.dataApi = data;
+              let dayDataAux:Dia[] = [];
+              data.forEach((item)=>{
+                this.prediccionDaily = [item.prediccion];
+                this.prediccionDaily.forEach((prediccion)=>{
+                  prediccion.dia.forEach((dia)=>{
+                    // this.dayData = [dia];
+                    dayDataAux.push(dia);
+                  })
                 })
               })
-            })
-
-            this.dayData = dayDataAux;
-            this.spinner.hideSpinner();
+              this.dayData = dayDataAux;
+              this.spinner.hideSpinner();
+              }
+            )
           }
-        )
-      }
-    );
+        );
+      });
+
   }
 
   search():void {
