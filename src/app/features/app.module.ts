@@ -11,14 +11,14 @@ import { FormsModule } from '@angular/forms';
 import { PipesModule } from './pipes/pipes.module';
 
 import { AppComponent } from '../app.component';
-import { ErrorPageComponent } from '../common/pages/error-page/error-page.component';
-import { HomeComponent } from '../templates/home/home.component';
+import { ErrorPageComponent } from '../layouts/error/error-page.component';
+import { HomeComponent } from '../layouts/home/home.component';
 
 // Para poner la fecha en español
 import { LOCALE_ID } from '@angular/core';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
-import { CoreModule } from './core/core.module';
+import { CoreModule } from '../core/core.module';
 
 
 

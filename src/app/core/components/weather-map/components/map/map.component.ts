@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit,  } from '@angular/core';
 
 import * as L from 'leaflet';
 import { WeatherMapService } from '../../../../services/weather-map.service';
-import { environmentsMap } from '../../../../../common/environments/environments.map';
+import { environmentsMap } from '../../../../../shared/environments/environments.map';
 
 @Component({
   selector: 'app-map',

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
-import { API, Flags } from '../../../common/interfaces/flags.interface';
-import { SpinnerComponent } from '../../../shared/ui/spinner/spinner.component';
-import { SpinnerService } from '../../../shared/services/spinner.service';
-import { All } from '../../../common/interfaces/all.interface';
+import { API, Flags } from '../../../shared/interfaces/flags.interface';
+import { SpinnerComponent } from '../../../utils/ui/spinner/spinner.component';
+import { SpinnerService } from '../../../utils/services/spinner.service';
+import { All } from '../../../shared/interfaces/all.interface';
 
 @Component({
   selector: 'app-countries',

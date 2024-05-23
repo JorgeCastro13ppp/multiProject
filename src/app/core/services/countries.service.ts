@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { API } from '../../common/interfaces/flags.interface';
-import { environment } from '../../common/environments/environmentCountries';
-import { All } from '../../common/interfaces/all.interface';
+import { API } from '../../shared/interfaces/flags.interface';
+import { environment } from '../../shared/environments/environment.countries';
+import { All } from '../../shared/interfaces/all.interface';
 
 
 @Injectable({

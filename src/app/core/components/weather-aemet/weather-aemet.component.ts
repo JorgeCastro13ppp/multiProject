@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AemetService } from '../../services/aemet.service';
-import { APIAemet } from '../../../common/interfaces/interface.aemet';
-import { Data, Dia, Prediccion } from '../../../common/interfaces/interface.data';
-import { SpinnerService } from '../../../shared/services/spinner.service';
+import { APIAemet } from '../../../shared/interfaces/interface.aemet';
+import { Data, Dia, Prediccion } from '../../../shared/interfaces/interface.data';
+import { SpinnerService } from '../../../utils/services/spinner.service';
 import { MunicipalityService } from '../../services/municipality.service';
 import { ActivatedRoute } from '@angular/router';
 

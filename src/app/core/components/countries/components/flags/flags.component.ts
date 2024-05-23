@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, SecurityContext } from '@angular/core';
 import { CountriesService } from '../../../../services/countries.service';
-import { API } from '../../../../../common/interfaces/flags.interface';
-import { Country } from '../../../../../common/interfaces/modal.interface';
-import { SpinnerService } from 'src/app/shared/services/spinner.service';
-import { Aed, All } from '../../../../../common/interfaces/all.interface';
+import { API } from '../../../../../shared/interfaces/flags.interface';
+import { Country } from '../../../../../shared/interfaces/modal.interface';
+import { SpinnerService } from 'src/app/utils/services/spinner.service';
+import { Aed, All } from '../../../../../shared/interfaces/all.interface';
 // import { Sanitizer } from '@angular/core';
 // import { DomSanitizer } from '@angular/platform-browser';
 

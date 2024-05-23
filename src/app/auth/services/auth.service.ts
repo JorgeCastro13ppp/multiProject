@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { User, UserLogin } from "../../common/interfaces";
+import { User, UserLogin } from "../../shared/interfaces";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 
@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 })
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
+  private timeOut:any;
 
   constructor(private router:Router){}
 
@@ -36,7 +37,6 @@ export class AuthService {
      }else{
        return false;
      }
-
   }
 
   login(userLogin: UserLogin): boolean {
@@ -46,6 +46,9 @@ export class AuthService {
     if (user) {
       sessionStorage.setItem('currentUser', JSON.stringify(user));
       this.loggedIn.next(true);
+      this.timeOut = setTimeout(() => {
+        this.logout();
+      }, 3600000); //funciona
       return true;
     } else {
       return false;
@@ -55,6 +58,7 @@ export class AuthService {
   logout(): void {
     sessionStorage.removeItem('currentUser');
     this.loggedIn.next(false);
+    clearTimeout(this.timeOut);
 
   }
 

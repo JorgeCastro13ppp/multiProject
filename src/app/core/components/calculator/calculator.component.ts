@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
-import { Buttons } from '../../../common/interfaces/button.interface';
+import { Buttons } from '../../../shared/interfaces/button.interface';
 
 @Component({
   selector: 'app-calculator',

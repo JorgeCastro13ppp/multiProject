@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { GeoService } from '../../services/geo.service';
-import { APIm } from '../../../common/interfaces/municipalities.interface';
-import { APIc } from '../../../common/interfaces/communities.interface';
-import { APIp } from '../../../common/interfaces/provinces.interface';
-import { SpinnerService } from '../../../shared/services/spinner.service';
+import { APIm } from '../../../shared/interfaces/municipalities.interface';
+import { APIc } from '../../../shared/interfaces/communities.interface';
+import { APIp } from '../../../shared/interfaces/provinces.interface';
+import { SpinnerService } from '../../../utils/services/spinner.service';
 import { MunicipalityService } from '../../services/municipality.service';
-import { MunicipalityWeatherService } from '../../../shared/services/municipality-weather.service';
+
 import { AemetService } from '../../services/aemet.service';
 
 
@@ -30,7 +30,7 @@ export class GeoMunicipalitiesComponent implements OnInit {
   apiMunicipalities?:APIm;
 
 
-  constructor(private geoService: GeoService,public spinner:SpinnerService, private municipalityService:MunicipalityService,private sharedService:MunicipalityWeatherService,
+  constructor(private geoService: GeoService,public spinner:SpinnerService, private municipalityService:MunicipalityService,
     private aemet:AemetService
   ) { }
 

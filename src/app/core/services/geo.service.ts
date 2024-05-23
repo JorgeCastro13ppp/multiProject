@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environmentGeo } from '../../common/environments/environmentGeo';
+import { environmentGeo } from '../../shared/environments/environment.geo';
 import { Observable } from 'rxjs';
-import { APIm } from '../../common/interfaces/municipalities.interface';
-import { APIc } from '../../common/interfaces/communities.interface';
-import { APIp } from '../../common/interfaces/provinces.interface';
+import { APIm } from '../../shared/interfaces/municipalities.interface';
+import { APIc } from '../../shared/interfaces/communities.interface';
+import { APIp } from '../../shared/interfaces/provinces.interface';
 
 @Injectable({
   providedIn: 'root'

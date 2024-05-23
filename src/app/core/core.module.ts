@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CountriesModule } from '../countries.module';
-import { WeatherMapModule } from '../weather-map.module';
+import { CountriesModule } from '../features/countries.module';
+import { WeatherMapModule } from '../features/weather-map.module';
 
-import { CalculatorComponent } from '../../core/components/calculator/calculator.component';
-import { NavbarComponent } from '../../core/components/navbar/navbar.component';
-import { CountriesComponent } from '../../core/components/countries/countries.component';
-import { GeoMunicipalitiesComponent } from '../../core/components/geo-municipalities/geo-municipalities.component';
-import { WeatherAemetComponent } from '../../core/components/weather-aemet/weather-aemet.component';
-import { WeatherMapComponent } from '../../core/components/weather-map/weather-map.component';
-import { PipesModule } from '../pipes/pipes.module';
-import { SharedModule } from '../shared/shared.module';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CountriesComponent } from './components/countries/countries.component';
+import { GeoMunicipalitiesComponent } from './components/geo-municipalities/geo-municipalities.component';
+import { WeatherAemetComponent } from './components/weather-aemet/weather-aemet.component';
+import { WeatherMapComponent } from './components/weather-map/weather-map.component';
+import { PipesModule } from '../features/pipes/pipes.module';
+import { SharedModule } from '../features/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CoreRoutingModule } from 'src/app/routes/core/core-routing.module';
