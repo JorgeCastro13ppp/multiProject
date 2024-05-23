@@ -1,0 +1,202 @@
+
+ <!-- {{apiAemet|json}}
+{{dataApi|json}} -->
+<app-spinner></app-spinner>
+
+<div class="control" *ngIf="!spinner?.isLoading">
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="input-group input-group-lg mb-3">
+          <input [(ngModel)]="postalCodeCc" type="text" class="form-control placeholder-custom" placeholder="Introduce código..." aria-label="Municipality's code" aria-describedby="button-search-municipality" id="inputMunicipality" maxlength="5">
+          <button (click)="search()" class="btn btn-outline-purple" type="button-search-municipality" id="button-addon2">Buscar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center" *ngFor="let datos of dataApi">
+    <h1>{{datos?.nombre}}, {{datos?.provincia}}</h1>
+      <!-- , {{datos?.id}} -->
+    <!-- <iframe src="https://www.google.com/maps/embed?origin=mfe&pb=!1m13!1m8!1m3!1d197109.11833042419!2d-6.37121092!3d39.47316762!3m2!1i1024!2i768!4f13.1!2m1!1s39.4731676200,-6.3712109200!5e0!6i11"></iframe> -->
+    <h3 class="italic">Predicción elaborada {{datos.elaborado | date: 'dd/MM/yyyy'}} </h3>
+  </div>
+
+  <div class="container container-cards">
+
+      <div class="col-12" *ngFor="let day of dayData; let i = index">
+        <div class="card m-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 align-items-start" id="imgDataWeather">
+
+                <h1 class="card-title">{{ day.fecha | date: 'EEEE - dd' : 'es' |titlecase }}</h1>
+                <hr>
+
+                <h2 *ngIf="day.temperatura.dato[i]">
+                  <img src="../assets/weather-icons-master/design/fill/animation-ready/thermometer.svg">
+                  <span>{{day.temperatura.dato | temperaturaActual : horaActual}}</span> ºC
+                </h2>
+                <div class="row" id="temperature">
+                  <div class="col-6">
+                    <h4>
+                      <img src="../../assets/weather-icons-master/design/line/export/wi_thermometer-colder.svg" alt=""/>
+                      <span class="text-primary">{{day.temperatura.minima}}</span> ºC <br/>
+                    </h4>
+                  </div>
+                  <div class="col-6">
+                    <h4>
+                      <img src="../../assets/weather-icons-master/design/line/export/wi_thermometer-warmer.svg" alt="">
+                      <span class="text-danger">{{day.temperatura.maxima}}</span> ºC <br/>
+                    </h4>
+                  </div>
+                </div>
+                <hr>
+                <div class="row text-center align-items-center" id="directionWind">
+
+                  <div class="d-none" *ngIf="!day.viento[0].direccion; else Wind">
+                    <div class="col-6">
+                      <img src="../../assets/weather-icons-master/design/line/export/wi_windsock.svg" alt="">
+                    </div>
+                  </div>
+
+                  <ng-template #Wind>
+                    <div class="col-6">
+                      <img src="../../assets/weather-icons-master/design/line/animation-ready/windsock.svg" alt="">
+                    </div>
+                    <div class="col-6">
+                      <span>{{day.viento[0].direccion}}</span>
+                    </div>
+                    <hr>
+                  </ng-template>
+
+                </div>
+
+                <h2 *ngIf="day.humedadRelativa.dato[i]">
+                  <img src="../../assets/weather-icons-master/design/fill/animation-ready/humidity.svg" alt=""/>
+                  <span>{{day.humedadRelativa.dato | humedadActual : horaActual}}</span> %
+                </h2>
+                <div class="row" id="humidity">
+                  <div class="col-6">
+                    <h4>
+                      <img src="../../assets/weather-icons-master/design/line/export/wi_humidity-min.svg" alt="" />
+                      <span>{{day.humedadRelativa.minima}}</span> %
+                    </h4>
+                  </div>
+                  <div class="col-6">
+                    <h4>
+                      <img src="../../assets/weather-icons-master/design/line/export/wi_humidity-max.svg" alt="" />
+                    <span>{{day.humedadRelativa.maxima}}</span> %
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6" id="imgPrincipalWeather">
+
+                  <img [src]="getStatusSky(day.estadoCielo[0].descripcion || day.estadoCielo[1].descripcion||day.estadoCielo[2].descripcion||day.estadoCielo[3].descripcion||day.estadoCielo[4].descripcion||day.estadoCielo[5].descripcion||day.estadoCielo[6].descripcion)" alt="" class="">
+                  <!-- {{day.estadoCielo[0].descripcion |json}} -->
+                <!-- <img [src]="get" -->
+              </div>
+              <div class="col-2 text-center" id="imgSecondaryWeather">
+                  <img [src]="getUvSvg(day.uvMax)" alt=""/> <br/>
+                  <a href="https://espanol.epa.gov/espanol/escala-del-indice-uv">Escala del índice UV</a>
+                  <hr>
+                  <img [src]="getPrecipitationSvg(day.probPrecipitacion[0].value)" alt=""/> <br/>
+                  <h4><span [class]="getPrecipitationColor(day.probPrecipitacion[0].value)">{{day.probPrecipitacion[0].value}} </span>%
+                  </h4>
+                  <hr>
+                  <img [src]="getWindSvg(day.viento[0].velocidad)" alt=""> <br/>
+                  <h4><span>{{day.viento[0].velocidad}}</span> km/h</h4>
+
+              </div>
+            </div>
+
+            <!-- <div class="row" id="miniCards">
+              <div class="col-4" *ngFor="let period of day.probPrecipitacion; let i = index">
+                <div class="d-block" *ngIf="period.periodo">
+                  <div class="card m-3" *ngIf="day.estadoCielo[i].descripcion">
+                    <div class="card-head text-center">
+                     <h4>{{period.periodo}}</h4>
+                    </div>
+                    <div class="card-body" >
+                         {{day.viento[i].velocidad}}
+                        {{day.viento[i].direccion}}
+
+                         {{day.estadoCielo[i].periodo}}:{{day.estadoCielo[i].value}}:{{day.estadoCielo[i].descripcion}}
+                       <div class="row">
+                          <div class="col-6">
+                            <img [src]="getStatusSky(day.estadoCielo[i].descripcion)" alt="">
+                          </div><div class="col-6">
+                            <div *ngFor="let dato of period|precipitacionPipe">
+                               {{dato.label}}: {{dato.value}}
+                              <img [src]="getPrecipitationSvg(dato.value)" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6">
+                            <img [src]="getWindDirectionSvg(day.viento[i].direccion)" alt=""/>
+                          </div>
+
+                          <div class="col-6">
+                            <img [src]="getWindSvg(day.viento[i].velocidad)" alt=""/>
+                          </div>
+
+                        </div>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div> -->
+
+            <div class="row" id="miniCards">
+              <ng-container *ngFor="let period of day.probPrecipitacion; let j = index">
+                <ng-container *ngIf="period.periodo && day.estadoCielo[j].descripcion">
+                  <div class="col-4">
+                    <div class="card m-3">
+                      <div class="card-head text-center">
+                        <h4>{{ period.periodo }}</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-6">
+                            <img [src]="getStatusSky(day.estadoCielo[j].descripcion)" alt=""/>
+                            <!-- {{day.estadoCielo[j].descripcion |json}} -->
+                          </div>
+                          <div class="col-6">
+                            <div *ngFor="let dato of period | precipitacionPipe">
+                              <img [src]="getPrecipitationSvg(dato.value)" alt=""/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6">
+                            <img [src]="getWindDirectionSvg(day.viento[j].direccion)" alt=""/>
+                          </div>
+                          <div class="col-6">
+                            <img [src]="getWindSvg(day.viento[j].velocidad)" alt=""/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="footer text-center">
+  <p>© AEMET. Autorizado el uso de la información y su reproducción citando a AEMET como autora de la misma. </p>
+</div>
