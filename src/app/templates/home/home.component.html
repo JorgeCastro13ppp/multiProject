@@ -1,7 +1,17 @@
-<div *ngIf="isLoggedInHome else imgLogOut" class="container-fluid container-img">
+<!-- <div *ngIf="isLoggedInHome else imgLogOut" class="container-fluid container-img">
 </div>
 
 <ng-template #imgLogOut>
   <div class="container-fluid container-img-logout">
+  </div>
+</ng-template> -->
+
+<div *ngIf="isLoggedInHome; else imgLogOut" class="container-fluid container-img">
+  <!-- Contenido para usuarios logueados -->
+</div>
+
+<ng-template #imgLogOut>
+  <div class="container-fluid container-img-logout">
+    <!-- Contenido para usuarios no logueados -->
   </div>
 </ng-template>

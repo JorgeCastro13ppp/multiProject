@@ -1,19 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,OnDestroy {
 
-  constructor(private authService:AuthService) { }
+  isLoggedInHome = false;
+  private authSubscription!: Subscription;
 
-  isLoggedInHome=false;
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.isLoggedInHome = this.authService.isLoggedIn();
+    this.authSubscription = this.authService.isLoggedIn().subscribe(
+      (isLoggedIn: boolean) => {
+        this.isLoggedInHome = isLoggedIn;
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
   }
 
 }

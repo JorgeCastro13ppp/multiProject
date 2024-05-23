@@ -1,15 +1,20 @@
 import { Injectable } from "@angular/core";
 import { User, UserLogin } from "../../common/interfaces";
 import { Router } from "@angular/router";
+import { BehaviorSubject, Observable } from "rxjs";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private logged = false;
+  private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
 
   constructor(private router:Router){}
+
+  private hasToken(): boolean {
+    return !!sessionStorage.getItem('currentUser');
+  }
 
   register(user: User): boolean {
     // Verificar si el usuario ya existe en localStorage
@@ -26,11 +31,12 @@ export class AuthService {
     // Guardar el usuario registrado en localStorage
     localStorage.setItem('registeredUser', JSON.stringify(user));
 
-    if(localStorage.getItem('users') && localStorage.getItem('registeredUser')){
-      return true;
-    }else{
-      return false;
-    }
+     if(localStorage.getItem('users') && localStorage.getItem('registeredUser')){
+       return true;
+     }else{
+       return false;
+     }
+
   }
 
   login(userLogin: UserLogin): boolean {
@@ -39,6 +45,7 @@ export class AuthService {
 
     if (user) {
       sessionStorage.setItem('currentUser', JSON.stringify(user));
+      this.loggedIn.next(true);
       return true;
     } else {
       return false;
@@ -47,12 +54,12 @@ export class AuthService {
 
   logout(): void {
     sessionStorage.removeItem('currentUser');
-    this.logged = false;
+    this.loggedIn.next(false);
 
   }
 
-  isLoggedIn(): boolean {
-    return !!sessionStorage.getItem('currentUser');
+  isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
   }
 
 }
