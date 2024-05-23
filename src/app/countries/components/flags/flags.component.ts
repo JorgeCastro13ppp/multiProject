@@ -1,9 +1,11 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
+import { Component, Input, OnInit, SecurityContext } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { API } from '../../interfaces/flags.interface';
 import { ModalService } from '../../services/modal.service';
 import { Country } from '../../interfaces/modal.interface';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
+import { DataService } from '../../services/data.service';
+import { Aed, All } from '../../interfaces/all.interface';
 // import { Sanitizer } from '@angular/core';
 // import { DomSanitizer } from '@angular/platform-browser';
 
@@ -14,38 +16,22 @@ import { SpinnerService } from 'src/app/shared/services/spinner.service';
 })
 export class FlagsComponent implements OnInit {
 
-  // sanitizedUrl?:any;
-  apiFlags?:API[];
-  apiCountries?:Country[];
+  @Input() countries: All[] = [];
+  selectedCountry?: All;
 
-  constructor(private countriesService: CountriesService, private modalService:ModalService, public spinner:SpinnerService, public spinnerModal:SpinnerService /*private sanitizer: DomSanitizer*/) {
-   }
+  constructor(
+    private countriesService: CountriesService,
+    public spinner: SpinnerService
+  ) { }
 
-  ngOnInit(): void {
-    this.spinner.showSpinner();
-    this.countriesService.getFlagsCountries().subscribe(
-      api => {
-        this.apiFlags = api;
-        this.spinner.hideSpinner();
-      }
-    );
+  ngOnInit(): void { }
+
+  getInfoModal(cca2: string): void {
+
+    this.selectedCountry = this.countriesService.getCountryByCode(cca2);
 
   }
-
-  getInfoModal(cca2:string):void {
-    console.log('Click en la bandera!', cca2);
-    this.modalService.getModalCountries(cca2).subscribe(country=>{
-      this.apiCountries = country;
-      console.log(country);
-      // Sanitizar la URL de Google Maps
-      // this.apiCountries.forEach(country => {
-      //   if (country.maps && country.maps.googleMaps) {
-      //     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(country.maps.googleMaps);
-      //   }
-      // });
-
-    })
-
+  getCurrencies(country: All): { key: string, value: Aed }[] | undefined {
+    return country.currencies ? Object.entries(country.currencies).map(([key, value]) => ({ key, value })) : undefined;
   }
-
 }

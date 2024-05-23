@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { User, UserLogin } from "../interfaces";
+import { Router } from "@angular/router";
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { User, UserLogin } from "../interfaces";
 export class AuthService {
   private logged = false;
 
-  constructor(){}
+  constructor(private router:Router){}
 
   register(user: User): boolean {
     // Verificar si el usuario ya existe en localStorage
@@ -47,6 +48,7 @@ export class AuthService {
   logout(): void {
     sessionStorage.removeItem('currentUser');
     this.logged = false;
+
   }
 
   isLoggedIn(): boolean {

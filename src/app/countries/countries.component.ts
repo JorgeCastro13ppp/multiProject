@@ -3,6 +3,8 @@ import { CountriesService } from './services/countries.service';
 import { API, Flags } from './interfaces/flags.interface';
 import { SpinnerComponent } from '../shared/components/spinner/spinner.component';
 import { SpinnerService } from '../shared/services/spinner.service';
+import { DataService } from './services/data.service';
+import { All } from './interfaces/all.interface';
 
 @Component({
   selector: 'app-countries',
@@ -11,12 +13,18 @@ import { SpinnerService } from '../shared/services/spinner.service';
 })
 export class CountriesComponent implements OnInit {
 
+  countries: All[] = [];
 
-  constructor(private countriesService:CountriesService) { }
+  constructor(private countriesService: CountriesService, private spinnerC: SpinnerService) { }
 
   ngOnInit(): void {
-
+    this.spinnerC.showSpinner();
+    this.countriesService.getAllCountries().subscribe(
+      (countries: All[]) => {
+        this.countries = countries;
+        this.spinnerC.hideSpinner();
+      }
+    );
   }
-
 
 }

@@ -1,113 +1,94 @@
-  <!-- {{apiFlags | json}} -->
 <app-spinner></app-spinner>
 
-<div class="control" *ngIf="!spinner?.isLoading">
+<div class="control" *ngIf="!spinner.isLoading">
   <div class="container">
     <div class="d-flex flex-wrap">
-      <div class="col-2 mb-2 mb-md-3 text-center" *ngFor="let country of apiFlags; let i = index" >
+      <div class="col-2 mb-2 mb-md-3 text-center" *ngFor="let country of countries">
         <img [src]="country.flags.png" class="flag" alt="" (click)="getInfoModal(country.cca2)" data-bs-toggle="modal" data-bs-target="#countryModal"><br/>
-         <small id="smallName">{{country.name.common}}</small>
+        <small id="smallName">{{country.name.common}}</small>
+      </div>
     </div>
   </div>
-  </div>
 
-<div class="modal fade" id="countryModal" aria-hidden="true" aria-labelledby="countryModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+  <div class="modal fade" id="countryModal" aria-hidden="true" aria-labelledby="countryModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
 
-      <div class="modal-header" *ngFor="let country of apiCountries">
-            <h1 class="col-md-7 modal-title fs-5" id="countryModalToggleLabel" >Información básica de
-             <strong class="info-country-name"> {{country.name.common}}</strong>
-            </h1>
-            <div class="col-md-4">
-              <img src="{{country.flags.svg}}" alt="{{country.flags.alt}}">
-            </div>
-        <button type=" col-md-1 button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <div class="info-country-text" *ngFor="let infoModal of apiCountries">
-
-            <div class="col-auto">
-              <ul class="list-unstyled nested-list">
-                <li>Continente: {{infoModal.region}}</li>
-                <li>Capital: {{infoModal.capital}}</li>
-                <li *ngFor="let currency of infoModal.currencies |keyvalue">Moneda: {{currency.value.name}}</li>
-                <li >Idiomas: <span *ngFor="let idioms of infoModal.languages |keyvalue"> {{idioms.value}}</span>
-                </li>
-              </ul>
-            </div>
-            <!-- <div class="col-12">
-              <iframe
-                width="100%"
-                height="300"
-                frameborder="0"
-                [src]="sanitizedUrl"
-                allowfullscreen
-              ></iframe>
-            </div> -->
+        <div class="modal-header">
+          <h1 class="col-md-9 modal-title fs-5" id="countryModalToggleLabel">Información básica de <strong>{{selectedCountry?.name?.common}}</strong></h1>
+          <div class="col-md-2">
+            <img src="{{selectedCountry?.flags?.svg}}" alt="{{selectedCountry?.flags?.alt}}" />
           </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#countryModalToggle2" data-bs-toggle="modal">Información detallada</button>
+          <button type="button" class="col-md-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body" *ngIf="selectedCountry">
+          <!-- <div>
+            <img [src]="selectedCountry.flags.svg" alt="{{selectedCountry.flags.alt}}">
+          </div> -->
+          <div class="col-auto">
+            <ul class="list-unstyled nested-list">
+              <li>Continente: {{selectedCountry.region}}</li>
+              <li>Capital: {{selectedCountry.capital}}</li>
+              <!-- <li *ngFor="let currencies of infoModal.currencies |keyvalue">Moneda:{{currencies.value}}</li> -->
+              <li *ngFor="let currency of getCurrencies(selectedCountry)">
+                Moneda: {{currency.value.name}}
+              </li>
+              <li>Idiomas: <span *ngFor="let idiom of selectedCountry.languages | keyvalue">{{idiom.value}} </span></li>
+
+            </ul>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#countryModalToggle2">Información detallada</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="modal fade" id="countryModalToggle2" aria-hidden="true" aria-labelledby="countryModalToggleLabel2" tabindex="-1" *ngFor="let country  of apiCountries">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="countryModalToggleLabel2">Información detallada de
-          <span class="info-country-name">{{country.name.common}}</span>
-        </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body ">
-        <div class="col-12">
-          <img [src]="country.flags.png" alt="">
+
+  <div class="modal fade" id="countryModalToggle2" aria-hidden="true" aria-labelledby="countryModalToggleLabel2" tabindex="-1" *ngFor="let infoModalD of countries">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="countryModalToggleLabel2">Información detallada de <span>{{selectedCountry?.name?.common}}</span></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <hr>
-        <div class="col-auto info-country-text">
-          <ul class="list-unstyled nested-list">
-           <p>{{country.flags.alt}}</p>
-            <li>Nombre oficial: {{country.name.official}}</li>
-            <li>Region: {{country.subregion}}</li>
-            <li *ngFor="let currency of country.currencies |keyvalue">Símbolo de moneda: {{currency.value.symbol}}</li>
-            <li>Área: {{country.area}} km²</li>
-            <li>Población: {{country.population}}</li>
-            <li>Código FIFA: {{country.fifa}}</li>
-            <li>Zona horaria: {{country.timezones}}</li>
-          </ul>
-        </div>
-        <div class="col-auto">
-          <h3>Traducciones:</h3>
-          <table class="table">
-            <tr *ngFor="let translation of country.translations | keyvalue">
-              <td>{{ translation.key }}</td>
+        <div class="modal-body" *ngIf="selectedCountry">
+          <div class="col-12">
+            <img [src]="selectedCountry.flags.png" alt="">
+          </div>
+          <div class="col-auto info-country-text">
+            <ul class="list-unstyled nested-list">
+              <p>{{infoModalD.flags.alt}}</p>
+              <li>Nombre oficial: {{selectedCountry.name.official}}</li>
+              <li>Región: {{selectedCountry.subregion}}</li>
+              <!-- <li *ngFor="let currencies of infoModalD.currencies |keyvalue">Moneda:{{currencies.value}}</li> -->
+              <li *ngFor="let currency of getCurrencies(selectedCountry)">
+                Símbolo: {{currency.value.symbol}}
+              </li>
+              <li>Área: {{selectedCountry.area}} km²</li>
+              <li>Población: {{selectedCountry.population}}</li>
+              <li>Código FIFA: {{selectedCountry.fifa}}</li>
+              <li>Zona horaria: {{selectedCountry.timezones}}</li>
+            </ul>
+          </div>
+          <div class="col-auto">
+            <h3>Traducciones:</h3>
+            <table class="table">
+              <tr *ngFor="let translation of selectedCountry.translations |keyvalue">
+                <td>{{ translation.key }}</td>
               <td>{{ translation.value.official }}</td>
               <td>{{ translation.value.common }}</td>
-            </tr>
-          </table>
-        </div>
+              </tr>
+            </table>
+          </div>
 
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#countryModal" data-bs-toggle="modal">Volver</button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#countryModal">Volver</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
