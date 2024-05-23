@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../routes/app-routing.module';
-import { AppComponent } from '../app.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { AuthRoutingModule } from '../routes/auth/auth-routing.module';
 import { AuthModule } from './auth/auth.module';
@@ -12,7 +10,9 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { PipesModule } from './pipes/pipes.module';
 
+import { AppComponent } from '../app.component';
 import { ErrorPageComponent } from '../common/pages/error-page/error-page.component';
+import { HomeComponent } from '../templates/home/home.component';
 
 // Para poner la fecha en español
 import { LOCALE_ID } from '@angular/core';
@@ -21,11 +21,13 @@ import { registerLocaleData } from '@angular/common';
 import { CoreModule } from './core/core.module';
 
 
+
 registerLocaleData(localeEs,'es');
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     ErrorPageComponent,
   ],
   imports: [

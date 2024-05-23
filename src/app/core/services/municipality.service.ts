@@ -9,6 +9,6 @@ export class MunicipalityService {
   constructor(private router: Router) { }
 
   navigateToWeather(munCode:string){
-    this.router.navigate(['/weather-aemet'],{queryParams:{munCode}})
+    this.router.navigate(['/core/weather-aemet'],{queryParams:{munCode}})
   }
 }

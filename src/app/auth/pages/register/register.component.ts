@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     let registered = this.authService.register(this.userR);
     if (registered) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/auth/login']);
     alert('Usuario registrado con éxito');
   } else {
     alert('Error al registrar usuario');

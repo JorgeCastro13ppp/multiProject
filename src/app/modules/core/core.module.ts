@@ -5,7 +5,6 @@ import { WeatherMapModule } from '../weather-map.module';
 
 import { CalculatorComponent } from '../../core/components/calculator/calculator.component';
 import { NavbarComponent } from '../../core/components/navbar/navbar.component';
-import { HomeComponent } from '../../templates/home/home.component';
 import { CountriesComponent } from '../../core/components/countries/countries.component';
 import { GeoMunicipalitiesComponent } from '../../core/components/geo-municipalities/geo-municipalities.component';
 import { WeatherAemetComponent } from '../../core/components/weather-aemet/weather-aemet.component';
@@ -14,12 +13,12 @@ import { PipesModule } from '../pipes/pipes.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CoreRoutingModule } from 'src/app/routes/core/core-routing.module';
 
 @NgModule({
   declarations: [
     CalculatorComponent,
     NavbarComponent,
-    HomeComponent,
     CountriesComponent,
     WeatherAemetComponent,
     GeoMunicipalitiesComponent,
@@ -27,6 +26,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    CoreRoutingModule,
     RouterModule,
     FormsModule,
     CountriesModule,
@@ -37,7 +37,6 @@ import { RouterModule } from '@angular/router';
   exports: [
     CalculatorComponent,
     NavbarComponent,
-    HomeComponent,
     CountriesComponent,
     WeatherAemetComponent,
     GeoMunicipalitiesComponent,
