@@ -3160,7 +3160,7 @@ html,body{
    -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
    -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
    position: absolute;
-   top: 50%;
+   top: 55%;
    left: 50%;
    transform: translate(-50%, -50%);
  }
@@ -3170,6 +3170,7 @@ html,body{
  @media (max-width: 575px) {
    .wrap-login100 {
      width: 80%; /* ancho para pantallas xs */
+     height: 70%;
    }
  }
 
@@ -3177,6 +3178,7 @@ html,body{
  @media (min-width: 576px) and (max-width: 767px) {
    .wrap-login100 {
      width: 75%; /* ancho para pantallas sm */
+     height: 70%;
    }
  }
 
@@ -3184,6 +3186,7 @@ html,body{
  @media (min-width: 768px) and (max-width: 991px) {
    .wrap-login100 {
      width: 65%; /* ancho para pantallas md */
+     height: 70%;
    }
  }
 
@@ -3191,6 +3194,7 @@ html,body{
  @media (min-width: 992px) and (max-width: 1199px) {
    .wrap-login100 {
      width: 55%; /* ancho para pantallas lg */
+     height: 70%;
    }
  }
 
@@ -3198,6 +3202,7 @@ html,body{
  @media (min-width: 1200px) and (max-width: 1399px) {
    .wrap-login100 {
      width: 45%; /* ancho para pantallas xl */
+     height: 70%;
    }
  }
 
@@ -3205,8 +3210,123 @@ html,body{
  @media (min-width: 1400px) {
    .wrap-login100 {
      width: 35%; /* ancho para pantallas xxl */
+     height: 70%;
    }
  }
+ @media (min-height:400px){
+  .wrap-login100 {
+    bottom: 25%;
+    height: 90%;
+  }
+  .p-t-20{
+    padding-top: 5px;
+  }
+  .p-b-40{
+    padding-bottom: 0px;
+  }
+  .p-t-13{
+    padding-top: 5px;
+  }
+  .m-b-16{
+    margin-bottom: 5px;
+  }
+  .login100-form-title{
+    padding-bottom: 10px;
+  }
+  .p-b-23{
+    padding-bottom: 5px;
+  }
+  .p-t-178{
+    padding-top: 130px;
+  }
+ }
+ @media (min-height: 550px) {
+  .wrap-login100 {
+    bottom: 30%;
+    height: 85%;
+  }
+  .p-t-20{
+    padding-top: 10px;
+  }
+  .p-b-40{
+    padding-bottom: 0px;
+  }
+  .p-t-13{
+    padding-top: 5px;
+  }
+  .m-b-16{
+    margin-bottom: 5px;
+  }
+  .login100-form-title{
+    padding-bottom: 15px;
+  }
+  .p-b-23{
+    padding-bottom: 5px;
+  }
+  .p-t-178{
+    padding-top: 140px;
+  }
+}
+ @media (min-height: 600px) {
+  .wrap-login100 {
+    bottom: 30%;
+    height: 80%;
+  }
+  .p-t-20{
+    padding-top: 10px;
+  }
+  .p-b-40{
+    padding-bottom: 0px;
+  }
+}
+ @media (min-height: 650px) {
+  .wrap-login100 {
+    bottom: 30%;
+    height: 75%;
+  }
+  .p-b-23{
+    padding-bottom: 10px;
+  }
+  .p-b-40{
+    padding-bottom: 10px;
+  }
+  .m-b-16{
+    margin-bottom: 10px;
+  }
+  .p-t-178{
+    padding-top: 145px;
+  }
+}
+@media (min-height: 750px) {
+  .wrap-login100 {
+    bottom: 30%;
+    height: 73%;
+  }
+  .p-b-40{
+    padding-bottom: 0px;
+  }
+  .p-t-178{
+    padding-top: 158px;
+  }
+  .m-b-16{
+    margin-bottom: 14px;
+  }
+}
+@media (min-height: 750px) {
+  .wrap-login100 {
+    bottom: 30%;
+    height: 70%;
+  }
+  .p-b-40{
+    padding-bottom: 0px;
+  }
+  .p-t-178{
+    padding-top: 178px;
+  }
+  .m-b-16{
+    margin-bottom: 16px;
+  }
+}
 
  /*==================================================================
  [ Form ]*/
