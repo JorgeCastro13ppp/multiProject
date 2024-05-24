@@ -42,12 +42,6 @@ export class GeoMunicipalitiesComponent implements OnInit {
          this.spinner.hideSpinner();
        }
      );
-
-    //  this.municipalitiesService.getMunicipalities().subscribe(
-    //    muni =>{
-    //      this.apiMunicipalities = muni;
-    //   }
-    // );
   }
 
   onSelectCommunity(acomCode:string) {

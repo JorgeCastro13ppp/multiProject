@@ -1,6 +1,6 @@
 
  <!-- {{apiAemet|json}}
-{{dataApi|json}} -->
+      {{dataApi|json}} -->
 <app-spinner></app-spinner>
 
 <div class="control" *ngIf="!spinner?.isLoading">
@@ -17,8 +17,7 @@
 
   <div class="container text-center" *ngFor="let datos of dataApi">
     <h1>{{datos?.nombre}}, {{datos?.provincia}}</h1>
-      <!-- , {{datos?.id}} -->
-    <!-- <iframe src="https://www.google.com/maps/embed?origin=mfe&pb=!1m13!1m8!1m3!1d197109.11833042419!2d-6.37121092!3d39.47316762!3m2!1i1024!2i768!4f13.1!2m1!1s39.4731676200,-6.3712109200!5e0!6i11"></iframe> -->
+      <!-- {{datos?.id}} no coincide con el código de búsqueda -->
     <h3 class="italic">Predicción elaborada {{datos.elaborado | date: 'dd/MM/yyyy'}} </h3>
   </div>
 
@@ -96,7 +95,6 @@
 
                   <img [src]="getStatusSky(day.estadoCielo[0].descripcion || day.estadoCielo[1].descripcion||day.estadoCielo[2].descripcion||day.estadoCielo[3].descripcion||day.estadoCielo[4].descripcion||day.estadoCielo[5].descripcion||day.estadoCielo[6].descripcion)" alt="" class="">
                   <!-- {{day.estadoCielo[0].descripcion |json}} -->
-                <!-- <img [src]="get" -->
               </div>
               <div class="col-2 text-center" id="imgSecondaryWeather">
                   <img [src]="getUvSvg(day.uvMax)" alt=""/> <br/>
@@ -111,47 +109,6 @@
 
               </div>
             </div>
-
-            <!-- <div class="row" id="miniCards">
-              <div class="col-4" *ngFor="let period of day.probPrecipitacion; let i = index">
-                <div class="d-block" *ngIf="period.periodo">
-                  <div class="card m-3" *ngIf="day.estadoCielo[i].descripcion">
-                    <div class="card-head text-center">
-                     <h4>{{period.periodo}}</h4>
-                    </div>
-                    <div class="card-body" >
-                         {{day.viento[i].velocidad}}
-                        {{day.viento[i].direccion}}
-
-                         {{day.estadoCielo[i].periodo}}:{{day.estadoCielo[i].value}}:{{day.estadoCielo[i].descripcion}}
-                       <div class="row">
-                          <div class="col-6">
-                            <img [src]="getStatusSky(day.estadoCielo[i].descripcion)" alt="">
-                          </div><div class="col-6">
-                            <div *ngFor="let dato of period|precipitacionPipe">
-                               {{dato.label}}: {{dato.value}}
-                              <img [src]="getPrecipitationSvg(dato.value)" alt="" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-6">
-                            <img [src]="getWindDirectionSvg(day.viento[i].direccion)" alt=""/>
-                          </div>
-
-                          <div class="col-6">
-                            <img [src]="getWindSvg(day.viento[i].velocidad)" alt=""/>
-                          </div>
-
-                        </div>
-
-                    </div>
-
-                  </div>
-                </div>
-
-              </div>
-            </div> -->
 
             <div class="row" id="miniCards">
               <ng-container *ngFor="let period of day.probPrecipitacion; let j = index">
@@ -188,8 +145,6 @@
               </ng-container>
 
             </div>
-
-
 
           </div>
         </div>
