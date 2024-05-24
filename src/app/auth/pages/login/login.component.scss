@@ -3160,7 +3160,7 @@ iframe {
   -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -3265,7 +3265,7 @@ iframe {
     padding-top: 140px;
   }
   .p-t-170{
-    padding-top: 40;
+    padding-top: 20px;
   }
 }
  @media (min-height: 600px) {
@@ -3317,10 +3317,11 @@ iframe {
     padding-top: 140px;
   }
   .p-t-170{
-    padding-top: 120px;
+    padding-top: 30px;
   }
   .m-b-16{
     margin-bottom: 16px;
+    margin-top:15px;
   }
 }
 

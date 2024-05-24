@@ -3312,21 +3312,6 @@ html,body{
     margin-bottom: 14px;
   }
 }
-@media (min-height: 750px) {
-  .wrap-login100 {
-    bottom: 30%;
-    height: 70%;
-  }
-  .p-b-40{
-    padding-bottom: 0px;
-  }
-  .p-t-178{
-    padding-top: 178px;
-  }
-  .m-b-16{
-    margin-bottom: 16px;
-  }
-}
 
  /*==================================================================
  [ Form ]*/
@@ -3470,7 +3455,7 @@ html,body{
    border: 1px solid #c80000;
    border-radius: 14px;
    padding: 4px 25px 4px 10px;
-   top: 50%;
+   top: 55%;
    -webkit-transform: translateY(-50%);
    -moz-transform: translateY(-50%);
    -ms-transform: translateY(-50%);
