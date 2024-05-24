@@ -16,29 +16,21 @@
 
         <div class="modal-header">
           <h1 class="col-md-9 modal-title fs-5" id="countryModalToggleLabel">Información básica de <strong>{{selectedCountry?.name?.common}}</strong></h1>
-          <div class="col-md-2">
+          <div class="col-2 offset-3 offset-md-0">
             <img src="{{selectedCountry?.flags?.svg}}" alt="{{selectedCountry?.flags?.alt}}" />
           </div>
-          <button type="button" class="col-md-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="col-md-1 col-sm-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body" *ngIf="selectedCountry">
-          <!-- <div>
-            <img [src]="selectedCountry.flags.svg" alt="{{selectedCountry.flags.alt}}">
-          </div> -->
           <div class="col-auto">
             <ul class="list-unstyled nested-list">
               <li>Continente: {{selectedCountry.region}}</li>
               <li>Capital: {{selectedCountry.capital}}</li>
-              <!-- <li *ngFor="let currencies of infoModal.currencies |keyvalue">Moneda:{{currencies.value}}</li> -->
-              <li *ngFor="let currency of getCurrencies(selectedCountry)">
-                Moneda: {{currency.value.name}}
-              </li>
+              <li *ngFor="let currency of getCurrencies(selectedCountry)">Moneda: {{currency.value.name}}</li>
               <li>Idiomas: <span *ngFor="let idiom of selectedCountry.languages | keyvalue">{{idiom.value}} </span></li>
-
             </ul>
           </div>
-
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#countryModalToggle2">Información detallada</button>
@@ -58,12 +50,16 @@
           <div class="col-12">
             <img [src]="selectedCountry.flags.png" alt="">
           </div>
+          <!-- <div class="col-12">
+            <div class="map">
+
+            </div>
+          </div> -->
           <div class="col-auto info-country-text">
             <ul class="list-unstyled nested-list">
               <p>{{infoModalD.flags.alt}}</p>
               <li>Nombre oficial: {{selectedCountry.name.official}}</li>
               <li>Región: {{selectedCountry.subregion}}</li>
-              <!-- <li *ngFor="let currencies of infoModalD.currencies |keyvalue">Moneda:{{currencies.value}}</li> -->
               <li *ngFor="let currency of getCurrencies(selectedCountry)">
                 Símbolo: {{currency.value.symbol}}
               </li>
@@ -71,6 +67,10 @@
               <li>Población: {{selectedCountry.population}}</li>
               <li>Código FIFA: {{selectedCountry.fifa}}</li>
               <li>Zona horaria: {{selectedCountry.timezones}}</li>
+              <li><a [href]="selectedCountry.maps.openStreetMaps"
+                target="_blank" rel="noopener noreferrer" title="Mapa de {{ selectedCountry.name }}">
+                Ver en el mapa</a>
+              </li>
             </ul>
           </div>
           <div class="col-auto">

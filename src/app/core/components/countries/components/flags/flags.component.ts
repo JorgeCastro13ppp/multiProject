@@ -1,18 +1,17 @@
-import { Component, Input, OnInit, SecurityContext } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, SecurityContext } from '@angular/core';
 import { CountriesService } from '../../../../services/countries.service';
-import { API } from '../../../../../shared/interfaces/flags.interface';
-import { Country } from '../../../../../shared/interfaces/modal.interface';
 import { SpinnerService } from 'src/app/utils/services/spinner.service';
 import { Aed, All } from '../../../../../shared/interfaces/all.interface';
-// import { Sanitizer } from '@angular/core';
 // import { DomSanitizer } from '@angular/platform-browser';
+
+// import * as L from 'leaflet';
 
 @Component({
   selector: 'app-flags',
   templateUrl: './flags.component.html',
   styleUrls: ['./flags.component.scss']
 })
-export class FlagsComponent implements OnInit {
+export class FlagsComponent implements OnInit, AfterViewInit {
 
   @Input() countries: All[] = [];
   selectedCountry?: All;
@@ -21,8 +20,14 @@ export class FlagsComponent implements OnInit {
     private countriesService: CountriesService,
     public spinner: SpinnerService
   ) { }
+  ngAfterViewInit(): void {
+
+  }
+
 
   ngOnInit(): void { }
+
+
 
   getInfoModal(cca2: string): void {
 

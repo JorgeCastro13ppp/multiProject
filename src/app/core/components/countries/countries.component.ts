@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
-import { API, Flags } from '../../../shared/interfaces/flags.interface';
-import { SpinnerComponent } from '../../../utils/ui/spinner/spinner.component';
 import { SpinnerService } from '../../../utils/services/spinner.service';
 import { All } from '../../../shared/interfaces/all.interface';
 
