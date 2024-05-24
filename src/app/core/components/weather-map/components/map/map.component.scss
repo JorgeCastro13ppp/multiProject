@@ -9,6 +9,30 @@
   width: 100%;
   height: 80vh; // ajusta el alto del mapa
   margin: 0 ; // centra el mapa horizontalmente
+  animation: fadeIn 1.5s ease-out forwards;
+}
+#buttons {
+  animation: fadeIn 2s ease-out forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.50;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.row-map{
+  animation: fadeIn 2s ease-out forwards;
 }
 
 #zoom-home-boton {
@@ -18,7 +42,7 @@
   width: 8px;
   height: 8px;
   padding: 14px;
-  background: url(./casa.png);
+  // background: url(./casa.png);
   background-position: center;
   background-size: contain;
   background-color: white;

@@ -156,7 +156,7 @@
             <div class="row" id="miniCards">
               <ng-container *ngFor="let period of day.probPrecipitacion; let j = index">
                 <ng-container *ngIf="period.periodo && day.estadoCielo[j].descripcion">
-                  <div class="col-4">
+                  <div class="col-4" id="card">
                     <div class="card m-3">
                       <div class="card-head text-center">
                         <h4>{{ period.periodo }}</h4>
