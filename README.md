@@ -26,6 +26,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Este proyecto ha sido creado con Angular 14v
+Angular 14.0.0
+## Hay que tener en cuenta la versión de Node con la que trabajamos, ya que no todas son compatibles
+## Puedes consultar las versiones compatibles con tu versión de angular 
+https://stackoverflow.com/questions/60248452/is-there-a-compatibility-list-for-angular-angular-cli-and-node-js
+## Para instalarlo busca la versión en la web oficial
+Node.js 16.10.0
+## Junto con node se instala npm
+Node Package Manager 7.24.0
+## También hay que tener en cuenta la versión de RxJs
+## Aunque a no ser que uses una versión antigua de Angular, no debería haber problemas
+RxJs 7.5.0
+## El nvm es igual, y no es imprescindible, pero ayuda a controlar versiones de angular si lo necesitas
+Node Version Manager 1.1.12
+
 ## Instalar bootstrap para modificarlo con SASS(scss)
 npm install --save bootstrap
 
