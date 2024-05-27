@@ -29,8 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Instalar bootstrap para modificarlo con SASS(scss)
 npm install --save bootstrap
 
-## Importar bootstrap en el style.scss
-@import 'bootstrap/scss/bootstrap';
+## Utilizar esta ruta en el style.scss
+@import '../node_modules/bootstrap/scss/bootstrap';
+## Esto importa todo lo que necesitamos, variables,mixins, etc...
 
 ## Instalar dependencias popper.js
 install bootstrap popper.js
@@ -45,10 +46,7 @@ npm install -g sass
 
 ## Watch mode para observar los cambios y compilarlos
 sass --watch ./styles.scss ./styles.css
-
 ## O utilizar extensión Live Sass Compiler
-## Utilizar esta ruta para mejor funcionamiento en el style.scss
-@import '../node_modules/bootstrap/scss/bootstrap';
 
 ## Para la visualización del mapa utilizaré leaflet
 ## Debemos instalarlo usando npm
@@ -78,12 +76,29 @@ npm install --save-dev @types/leaflet
 ## Utilizar archivo de AEMET para el mapa de leaflet
 src/assets/leafMET.js
 
+## Scafolding personalizado para el proyecto
+La organización de carpetas y archivos ha sido estudiada para ofrecer una búsqueda eficiente dentro del proyecto
 
-## Arreglar navbar(fixed) 
+## Apis, se pueden encontrar en shared/enviroments
+Se han utilizado las apis:
+-OpenWeatherMap
+-Aemet
+-RestCountries
+-OpenDataSoft
+## Para algunas apis es necesario usar una apikey
+-Aemet
+-OpenWeatherMap
 
-## Arreglar calculadora cuando se introduzca otro número después del resultado que se borre resultado
+## login y register
+Los usuarios logueados se guardan en sessionStorage
+Los usuarios registrados se guardan en localStorage
 
-## Arreglar weather, interpretar datos y mostrar imágemnes y gifs
+## Navegador 
+Al ejecutar ng serve ó ng serve -o, se abrirá el navegador predeterminado en tu equipo
 
-## Arreglar dependencias, eliminar dependencias que no se usen
+## Para activar los márgenes negativos de bootstrap modificar la variable a true de _variables.scss 
+## $enable-negative-margins: true !default;
+
+## Eliminar dependencias que no se usen
+
 

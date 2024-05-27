@@ -43,6 +43,10 @@ a:active {
   color: #712cf9;
 }
 
+.ms-negative {
+  margin-left: -0.4 rem;
+}
+
 .btn-outline-light {
   --bs-btn-color: #f8f9fa;
   --bs-btn-border-color: #f8f9fa;
@@ -98,4 +102,8 @@ a:active {
 .nav-link-custom {
   text-decoration: none;
   font-weight: 500;
+}
+
+#spinnerNav {
+  width: 100px;
 }/*# sourceMappingURL=navbar.component.css.map */

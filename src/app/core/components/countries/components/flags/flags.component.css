@@ -1,9 +1,35 @@
 @charset "UTF-8";
 img {
-  width: 100px;
-  height: 60px;
+  width: 80%;
 }
 
+.container {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+#smallName {
+  font-weight: 500;
+  font-size: medium;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .info-country-text {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -36,4 +62,10 @@ img {
 p {
   font-style: italic;
   font-size: 20px;
+}
+
+@media (max-width: 992px) {
+  #smallName {
+    display: none;
+  }
 }/*# sourceMappingURL=flags.component.css.map */

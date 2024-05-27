@@ -1,0 +1,38 @@
+#inputCity:focus {
+  box-shadow: 0 0 0 0.25rem rgba(113, 44, 249, 0.5);
+}
+
+#inputCity {
+  border-color: #712cf9;
+}
+
+.placeholder-custom::-moz-placeholder {
+  color: #712cf9;
+  opacity: 0.6;
+}
+
+.placeholder-custom::placeholder {
+  color: #712cf9;
+  opacity: 0.6;
+}
+
+#button-search-city {
+  border-color: #712cf9;
+}
+
+.btn-outline-purple {
+  --bs-btn-color: #712cf9;
+  --bs-btn-border-color: #712cf9;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #712cf9;
+  --bs-btn-hover-border-color: #712cf9;
+  --bs-btn-focus-shadow-rgb: 108, 117, 125;
+  --bs-btn-active-color: #712cf9;
+  --bs-btn-active-bg: #712cf9;
+  --bs-btn-active-border-color: #712cf9;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #712cf9;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #712cf9;
+  --bs-gradient: none;
+}/*# sourceMappingURL=search-map.component.css.map */

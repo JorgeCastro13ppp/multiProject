@@ -1,3 +1,28 @@
+.container {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#card {
+  animation: fadeIn 2.5s ease-out forwards;
+}
+
 .italic {
   font-style: italic;
   color: gray;
@@ -85,7 +110,7 @@
   --bs-btn-border-color: #712cf9;
   --bs-btn-hover-color: #ffffff;
   --bs-btn-hover-bg: #712cf9;
-  --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-hover-border-color: #712cf9;
   --bs-btn-focus-shadow-rgb: 108, 117, 125;
   --bs-btn-active-color: #712cf9;
   --bs-btn-active-bg: #712cf9;

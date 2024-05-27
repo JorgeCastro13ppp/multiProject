@@ -1,14 +1,47 @@
-.display {
-  background-color: #353232;
-  color: #ffffff;
-  font-size: 1.75em;
-  padding: 10px;
-  text-align: left;
-  height: 150px;
-  width: 33%;
-  border-radius: 10px;
+.jumbotron {
+  animation: fadeIn 2s ease-out forwards;
 }
 
-.container {
-  margin-top: 50px !important;
+@keyframes fadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.bg-custom {
+  background-color: #b692ff;
+  width: 100%;
+  height: 95%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #5b1369;
+}
+
+@media (min-width: 576px) {
+  .offset-sm-custom {
+    margin-left: 13%;
+  }
+}
+@media (min-width: 767px) {
+  .offset-md-custom {
+    margin-left: 21%;
+  }
+}
+@media (min-width: 992px) {
+  .offset-lg-custom {
+    margin-left: 29.3%;
+  }
+}
+@media (min-width: 1200px) {
+  .offset-xl-custom {
+    margin-left: 33.5%;
+  }
 }/*# sourceMappingURL=calculator.component.css.map */
