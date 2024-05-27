@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../routes/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,8 +31,8 @@ registerLocaleData(localeEs,'es');
     ErrorPageComponent,
   ],
   imports: [
-    // BrowserModule,
-    // BrowserAnimationsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AuthRoutingModule,
     CoreModule,
