@@ -22,25 +22,17 @@
       </select>
     </div>
   </div>
-
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <div id="myToastCommunity" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          Puedes ver los municipios de esta comunidad, pero no hay información meteorológica disponible sobre ellos.
+  <div aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container top-0 end-0 p-3">
+      <div class="toast-info position-fixed bottom-0 end-0 p-3" *ngFor="let toast of toasts; let i = index" [style.z-index]="11">
+        <div [id]="toast.id" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="d-flex">
+            <div class="toast-body">
+              {{ toast.message }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close">\</button>
+          </div>
         </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    </div>
-  </div>
-
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <div id="myToastProv" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          Puedes ver los municipios de esta provincia, pero no hay información meteorológica disponible sobre ellos.
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>
   </div>

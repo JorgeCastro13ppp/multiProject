@@ -19,6 +19,21 @@ import { MunicipalityService } from '../../services/municipality.service';
 
 export class GeoMunicipalitiesComponent implements OnInit {
 
+  toasts = [
+    {
+      id: 'myToastCommunity',
+      message: 'Puedes ver los municipios de esta comunidad, pero no hay información meteorológica disponible sobre ellos.'
+    },
+    {
+      id: 'myToastProv',
+      message: 'Puedes ver los municipios de esta provincia, pero no hay información meteorológica disponible sobre ellos.'
+    },
+    {
+      id: 'myToastMun',
+      message: 'No hay información meteorológica disponible sobre estos municipios.'
+    }
+  ];
+
   selectedCommunity?:string;
   selectedProvince?:string;
 
@@ -59,18 +74,25 @@ export class GeoMunicipalitiesComponent implements OnInit {
   }
 
   openToastCommunity() {
-    const toast = this.elementRef.nativeElement.querySelector('#myToastCommunity');
-    toast.classList.add('show');
+    const toastC = this.elementRef.nativeElement.querySelector('#myToastCommunity');
+    toastC.classList.add('show');
     setTimeout(() => {
-      toast.classList.remove('show'); // Quita la clase 'show' para ocultar el toast
-    }, 10000); // Oculta el toast después de 10 segundos (10000 milisegundos)
+      toastC.classList.remove('show'); // Quita la clase 'show' para ocultar el toast
+    }, 7000); // Oculta el toast después de 10 segundos (10000 milisegundos)
   }
   openToastProvince() {
-    const toast = this.elementRef.nativeElement.querySelector('#myToastProv');
-    toast.classList.add('show');
+    const toastP = this.elementRef.nativeElement.querySelector('#myToastProv');
+    toastP.classList.add('show');
     setTimeout(() => {
-      toast.classList.remove('show'); // Quita la clase 'show' para ocultar el toast
-    }, 10000); // Oculta el toast después de 10 segundos (10000 milisegundos)
+      toastP.classList.remove('show'); // Quita la clase 'show' para ocultar el toast
+    }, 7000); // Oculta el toast después de 10 segundos (10000 milisegundos)
+  }
+  openToastMun() {
+    const toastM = this.elementRef.nativeElement.querySelector('#myToastMun');
+    toastM.classList.add('show');
+    setTimeout(() => {
+      toastM.classList.remove('show'); // Quita la clase 'show' para ocultar el toast
+    }, 6000); // Oculta el toast después de 10 segundos (10000 milisegundos)
   }
 
   onSelectProvince(provCode:string){
@@ -89,8 +111,29 @@ export class GeoMunicipalitiesComponent implements OnInit {
   }
 
   onSelectMunicipality(munCode:string){
-    this.municipalityService.navigateToWeather(munCode);
-    console.log(munCode);
+    switch(munCode){
+      case '54001':
+      this.openToastMun();
+      break;
+      case '54002':
+      this.openToastMun();
+      break;
+      case '54003':
+      this.openToastMun();
+      break;
+      case '54004':
+      this.openToastMun();
+      break;
+      case '54005':
+      this.openToastMun();
+      break;
+      default:
+        this.municipalityService.navigateToWeather(munCode);
+        console.log(munCode);
+        break;
+    }
+
+
   }
 
 
