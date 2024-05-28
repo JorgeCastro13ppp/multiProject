@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { GeoService } from '../../services/geo.service';
 import { APIm } from '../../../shared/interfaces/municipalities.interface';
 import { APIc } from '../../../shared/interfaces/communities.interface';
@@ -6,7 +6,7 @@ import { APIp } from '../../../shared/interfaces/provinces.interface';
 import { SpinnerService } from '../../../utils/services/spinner.service';
 import { MunicipalityService } from '../../services/municipality.service';
 
-import { AemetService } from '../../services/aemet.service';
+
 
 
 @Component({
@@ -31,7 +31,7 @@ export class GeoMunicipalitiesComponent implements OnInit {
 
 
   constructor(private geoService: GeoService,public spinner:SpinnerService, private municipalityService:MunicipalityService,
-    private aemet:AemetService
+    private elementRef: ElementRef
   ) { }
 
   ngOnInit(): void {
@@ -53,6 +53,24 @@ export class GeoMunicipalitiesComponent implements OnInit {
         this.isLoadingProvinces = false;
       }
     )
+    if (acomCode === '20') {
+      this.openToastCommunity();
+    }
+  }
+
+  openToastCommunity() {
+    const toast = this.elementRef.nativeElement.querySelector('#myToastCommunity');
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show'); // Quita la clase 'show' para ocultar el toast
+    }, 10000); // Oculta el toast después de 10 segundos (10000 milisegundos)
+  }
+  openToastProvince() {
+    const toast = this.elementRef.nativeElement.querySelector('#myToastProv');
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show'); // Quita la clase 'show' para ocultar el toast
+    }, 10000); // Oculta el toast después de 10 segundos (10000 milisegundos)
   }
 
   onSelectProvince(provCode:string){
@@ -65,6 +83,9 @@ export class GeoMunicipalitiesComponent implements OnInit {
         this.isLoadingMunicipalities=false;
       }
     )
+    if (provCode === '54') {
+      this.openToastProvince();
+    }
   }
 
   onSelectMunicipality(munCode:string){

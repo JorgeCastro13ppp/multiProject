@@ -11,6 +11,7 @@
       </option>
     </select>
   </div>
+
   <app-spinner-bootstrap [isLoadingBootstrap]="isLoadingProvinces"></app-spinner-bootstrap>
   <div class="control" *ngIf="!isLoadingProvinces">
     <div class="container mt-4 mb-4 text-center" *ngIf="selectedCommunity">
@@ -21,6 +22,29 @@
       </select>
     </div>
   </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="myToastCommunity" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Puedes ver los municipios de esta comunidad, pero no hay información meteorológica disponible sobre ellos.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="myToastProv" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Puedes ver los municipios de esta provincia, pero no hay información meteorológica disponible sobre ellos.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
 
    <app-spinner-bootstrap [isLoadingBootstrap]="isLoadingMunicipalities"></app-spinner-bootstrap>
    <div class="control" *ngIf="!isLoadingMunicipalities">
