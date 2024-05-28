@@ -77,7 +77,7 @@ export class AuthService {
   checkAuthStatus(): void {
     if (this.getToken()) {
       const currentUrl = this.router.url;
-      console.log(currentUrl);
+      // console.log(currentUrl);
       if (currentUrl.startsWith('/auth/login') || currentUrl.startsWith('/auth/register')) {
         this.router.navigate(['/home']);
       }
@@ -86,8 +86,8 @@ export class AuthService {
   checkCoreStatus(): void {
     if (!this.getToken()) {
       const currentUrl = this.router.url;
-      console.log(currentUrl);
-      if (currentUrl.startsWith('/core/calculator') ) {
+      // console.log(currentUrl);
+      if (currentUrl.startsWith('/core') ) {
         this.router.navigate(['/home']);
       }
     }

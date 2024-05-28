@@ -63,8 +63,8 @@
               <li *ngFor="let currency of getCurrencies(selectedCountry)">
                 Símbolo: {{currency.value.symbol}}
               </li>
-              <li>Área: {{selectedCountry.area}} km²</li>
-              <li>Población: {{selectedCountry.population}}</li>
+              <li>Área: {{selectedCountry.area.toLocaleString()}} km²</li>
+              <li>Población: {{selectedCountry.population.toLocaleString()}}</li>
               <li>Código FIFA: {{selectedCountry.fifa}}</li>
               <li>Zona horaria: {{selectedCountry.timezones}}</li>
               <li><a [href]="selectedCountry.maps.openStreetMaps"
