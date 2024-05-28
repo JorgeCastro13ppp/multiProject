@@ -15,6 +15,7 @@ export class AuthService {
     this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd){
         this.checkAuthStatus();
+        this.checkCoreStatus();
       }
     })
   }
@@ -78,6 +79,15 @@ export class AuthService {
       const currentUrl = this.router.url;
       console.log(currentUrl);
       if (currentUrl.startsWith('/auth/login') || currentUrl.startsWith('/auth/register')) {
+        this.router.navigate(['/home']);
+      }
+    }
+  }
+  checkCoreStatus(): void {
+    if (!this.getToken()) {
+      const currentUrl = this.router.url;
+      console.log(currentUrl);
+      if (currentUrl.startsWith('/core/calculator') ) {
         this.router.navigate(['/home']);
       }
     }

@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../layouts/home/home.component';
 import { ErrorPageComponent } from '../layouts/error/error-page.component';
-import { AuthGuard } from '../guards/auth.guard';
+import { AuthGuard } from '../guards/auth/auth.guard';
+import { CoreGuard } from '../guards/core/core.guard';
+
 
 
 const routes: Routes = [
@@ -11,8 +13,8 @@ const routes: Routes = [
   canActivate:[AuthGuard]
   },
   { path:'home', component: HomeComponent },
-  { path:'core', loadChildren: () => import('../core/core.module').then(m => m.CoreModule), data: { parent: true },
-  canActivate:[AuthGuard]
+  { path:'core', loadChildren: () => import('../core/core.module').then(m => m.CoreModule), data: { parent: true},
+  canActivate: [CoreGuard]
   },
   { path:'**', component: ErrorPageComponent }
 ];
