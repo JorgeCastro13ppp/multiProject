@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit(): void {
+    this.authService.checkAuthStatus();
       // this.spinnerNav.showSpinner();
       // this.isLoggedIn = !!this.authService.isLoggedIn();
       // this.isLoggedIn = this.authService.isLoggedIn(); importante

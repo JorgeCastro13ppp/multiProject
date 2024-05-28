@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { User, UserLogin } from "../../shared/interfaces";
-import { Router } from "@angular/router";
+import { Router, NavigationEnd } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 
 
@@ -11,7 +11,13 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
   private timeOut:any;
 
-  constructor(private router:Router){}
+  constructor(private router:Router){
+    this.router.events.subscribe(event => {
+      if(event instanceof NavigationEnd){
+        this.checkAuthStatus();
+      }
+    })
+  }
 
   private hasToken(): boolean {
     return !!sessionStorage.getItem('currentUser');
@@ -65,6 +71,20 @@ export class AuthService {
 
   isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
+  }
+
+  checkAuthStatus(): void {
+    if (this.getToken()) {
+      const currentUrl = this.router.url;
+      console.log(currentUrl);
+      if (currentUrl.startsWith('/auth/login') || currentUrl.startsWith('/auth/register')) {
+        this.router.navigate(['/home']);
+      }
+    }
+  }
+
+  getToken(): boolean {
+    return !!sessionStorage.getItem('currentUser');
   }
 
 }
