@@ -113,17 +113,9 @@ export class GeoMunicipalitiesComponent implements OnInit {
   onSelectMunicipality(munCode:string){
     switch(munCode){
       case '54001':
-      this.openToastMun();
-      break;
       case '54002':
-      this.openToastMun();
-      break;
       case '54003':
-      this.openToastMun();
-      break;
       case '54004':
-      this.openToastMun();
-      break;
       case '54005':
       this.openToastMun();
       break;

@@ -9,8 +9,8 @@
     bg-dark justify-content-center">
       <div class="row justify-content-center">
         <div class="col-10">
-          <div class="input-group input-group-sm px-0">
-            <input class="form-control text-end rounded-0 border-light" id="calcscreen" type="text"
+          <div class="input-group input-group-sm px-0" >
+            <input class="form-control text-end rounded-0 border-light" id="calcscreen" type="text" id="calcInput"
             [value]="calcScreenValue" readonly
             />
           </div>
@@ -21,7 +21,7 @@
         <div class="col-10">
           <div class="input-group input-group-lg col-12 px-0">
             <input class="form-control text-end rounded-0 border-light" id="numberscreen" type="text"
-              [value]="numberScreenValue" readonly
+              [value]="numberScreenValue.toLocaleString()" readonly
             />
           </div>
         </div>

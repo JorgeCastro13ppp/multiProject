@@ -13,6 +13,9 @@
         </div>
       </div>
     </div>
+    <div *ngIf="errorMessage" class="text-center">
+      <small class="text-danger">{{ errorMessage }}</small>
+    </div>
   </div>
 
   <div class="container text-center" *ngFor="let datos of dataApi">

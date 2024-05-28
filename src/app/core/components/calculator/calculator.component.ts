@@ -35,7 +35,7 @@ export class CalculatorComponent  {
  numberScreenValue:string='';
  calcScreenValue:string='';
  isResult: boolean = false;
-
+ hasOperator:boolean = false;
  clearAll(){
   this.numberScreenValue='';
   this.calcScreenValue='';
@@ -55,6 +55,10 @@ export class CalculatorComponent  {
 
  handleclick(value:string) {
   if (value=='+'||value=='-'||value=='*'||value=='/') {
+    if(this.hasOperator){
+      return;
+    }
+    this.hasOperator=true;
     console.log('entro en op');
     this.calcScreenValue += `${this.numberScreenValue} ${value}`;
     this.numberScreenValue = '';
@@ -83,10 +87,17 @@ export class CalculatorComponent  {
       console.log('entro comporbar resultado');
       this.numberScreenValue=value;
       this.isResult=false;
+      this.hasOperator=false;
     }else{
-      this.numberScreenValue += value;
-      this.numberScreenValue = this.removeLeadingZeros(this.numberScreenValue);
+      if(this.numberScreenValue.length<12){
+        this.numberScreenValue += value;
+        this.numberScreenValue = this.removeLeadingZeros(this.numberScreenValue);
+      }else{
+        return;
+      }
+
     }
+    this.hasOperator = false;
   }
  }
 

@@ -47,3 +47,8 @@ a:hover{
       margin-left: 33.5%;
   }
 }
+
+#calcInput{
+  overflow-x: auto;
+  text-overflow: ellipsis;
+}

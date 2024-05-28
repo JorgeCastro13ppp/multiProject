@@ -19,6 +19,7 @@ export class WeatherAemetComponent implements OnInit {
   dayData:Dia[] = [];
   horaActual = new Date().getHours();
   postalCodeCc:string = '10037';
+  errorMessage?:string;
 
   constructor(private aemetService:AemetService,public spinner:SpinnerService,private municipality:MunicipalityService,private route: ActivatedRoute) {
    }
@@ -52,25 +53,40 @@ export class WeatherAemetComponent implements OnInit {
 
   }
 
-  search():void {
+  search(): void {
+    this.spinner.showSpinner();
     this.aemetService.getApiAemet(this.postalCodeCc).subscribe(
       api => {
+        if (!api || !api.datos) {
+          this.errorMessage = 'No se encontró información para el código de municipio introducido';
+          this.spinner.hideSpinner();
+          return;
+        }
         this.apiAemet = api;
         this.aemetService.getDataApi(this.apiAemet.datos).subscribe(
           data => {
             this.dataApi = data;
-            let dayDataAux:Dia[] = [];
-            data.forEach((item)=>{
+            let dayDataAux: Dia[] = [];
+            data.forEach((item) => {
               this.prediccionDaily = [item.prediccion];
-              this.prediccionDaily.forEach((prediccion)=>{
-                prediccion.dia.forEach((dia)=>{
+              this.prediccionDaily.forEach((prediccion) => {
+                prediccion.dia.forEach((dia) => {
                   dayDataAux.push(dia);
                 })
               })
             })
             this.dayData = dayDataAux;
+            this.spinner.hideSpinner();
+          },
+          error => {
+            this.errorMessage = 'Error al obtener la información del clima';
+            this.spinner.hideSpinner();
           }
         )
+      },
+      error => {
+        this.errorMessage = 'Error al obtener la información del clima';
+        this.spinner.hideSpinner();
       }
     );
   }
