@@ -4,6 +4,7 @@ import { SpinnerComponent } from '../../utils/ui/spinner/spinner.component';
 import { SpinnerService } from '../../utils/services/spinner.service';
 import { SpinnerModalComponent } from '../../utils/ui/spinner-modal/spinner-modal.component';
 import { SpinnerBootstrapComponent } from '../../utils/ui/spinner-bootstrap/spinner-bootstrap.component';
+import { AlertComponent } from 'src/app/utils/ui/alert/alert.component';
 
 
 
@@ -14,6 +15,7 @@ import { SpinnerBootstrapComponent } from '../../utils/ui/spinner-bootstrap/spin
     SpinnerComponent,
     SpinnerModalComponent,
     SpinnerBootstrapComponent,
+    AlertComponent
 
   ],
   imports: [
