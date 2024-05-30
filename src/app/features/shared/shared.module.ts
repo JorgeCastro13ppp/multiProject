@@ -25,6 +25,7 @@ import { AlertComponent } from 'src/app/utils/ui/alert/alert.component';
     SpinnerComponent,
     SpinnerModalComponent,
     SpinnerBootstrapComponent,
+    AlertComponent
   ],
   providers: [
     SpinnerService
