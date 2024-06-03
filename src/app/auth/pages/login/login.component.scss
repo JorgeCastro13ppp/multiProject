@@ -6,6 +6,20 @@ html,body{
  font-family: Ubuntu-Regular, sans-serif;
 }
 
+.alert{
+  height: 5%;
+  margin-left: 49%;
+  top: 70px;
+}
+
+.w-6{
+  width: 6%;
+}
+
+.w-5{
+  width: 5%;
+}
+
 .container-img {
   padding: 0;
   margin: 0;
@@ -3088,7 +3102,7 @@ textarea:-ms-input-placeholder { color: #5b1369;}
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+	// background: transparent;
 }
 
 button:hover {

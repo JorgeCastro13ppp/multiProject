@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, OnInit,  } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit,  } from '@angular/core';
 
 import * as L from 'leaflet';
 import { WeatherMapService } from '../../../../services/weather-map.service';
 import { environmentsMap } from '../../../../../shared/environments/environments.map';
+
 
 @Component({
   selector: 'app-map',
@@ -20,6 +21,7 @@ export class MapComponent implements OnInit,AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
   }
+
   ngOnInit(): void {
   }
 

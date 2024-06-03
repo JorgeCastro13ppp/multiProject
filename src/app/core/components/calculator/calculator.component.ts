@@ -54,15 +54,27 @@ export class CalculatorComponent  {
  }
 
  handleclick(value:string) {
-  if (value=='+'||value=='-'||value=='*'||value=='/') {
-    if(this.hasOperator){
-      return;
+  // if (value=='+'||value=='-'||value=='*'||value=='/') {
+  //   if(this.hasOperator){
+  //     return;
+  //   }
+  //   this.hasOperator=true;
+  //   console.log('entro en op');
+  //   this.calcScreenValue += `${this.numberScreenValue} ${value}`;
+  //   this.numberScreenValue = '';
+  // }
+  if (value == '+' || value == '-' || value == '*' || value == '/') {
+    if (this.calcScreenValue != '') {
+      const result = eval(this.calcScreenValue + this.numberScreenValue);
+      this.calcScreenValue = `${result} ${value}`;
+      this.numberScreenValue = '';
+    } else {
+      this.calcScreenValue += `${this.numberScreenValue} ${value}`;
+      this.numberScreenValue = '';
     }
-    this.hasOperator=true;
-    console.log('entro en op');
-    this.calcScreenValue += `${this.numberScreenValue} ${value}`;
-    this.numberScreenValue = '';
+    this.hasOperator = true;
   }
+
   else if(value=='C'){
     this.clearAll();
   }

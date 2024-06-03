@@ -24,6 +24,10 @@
   width: 23px;
 }
 
+.ms-n2 {
+  margin-left: -0.40rem !important;
+}
+
 $purple-bootstrap: #712cf9;
 $dark-puple-bootstrap: #5b1369;
 [data-bs-theme="purple"] {
@@ -51,10 +55,6 @@ a {
 
 a:active{
   color: $purple-bootstrap;
-}
-
-.ms-negative{
-  margin-left: -0.4 rem;
 }
 
 .btn-outline-light {
@@ -111,3 +111,4 @@ a:active{
 #spinnerNav {
   width: 100px;
 }
+

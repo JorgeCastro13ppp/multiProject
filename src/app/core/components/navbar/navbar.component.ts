@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../../auth/services/auth.service';
 import { Subscription } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit,OnDestroy {
   isLoggedIn = false;
   private authSubscription!:Subscription;
 
-  constructor(private authService: AuthService ) { }
+  constructor(private authService: AuthService, private cdrNav:ChangeDetectorRef ) { }
   ngOnDestroy(): void {
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
@@ -34,7 +34,12 @@ export class NavbarComponent implements OnInit,OnDestroy {
   }
 
   logoutNav(): void {
-    this.authService.logout();
+
+    setTimeout(() => {
+      this.authService.logout();
+    }, 2000);
+
   }
+
 
 }

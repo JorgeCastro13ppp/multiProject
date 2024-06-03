@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { WeatherMapService } from 'src/app/core/services/weather-map.service';
 
 @Component({
   selector: 'app-search-map',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-map.component.scss']
 })
 export class SearchMapComponent implements OnInit {
+
+
 
   constructor() { }
 

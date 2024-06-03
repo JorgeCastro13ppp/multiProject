@@ -66,7 +66,6 @@ export class AuthService {
     sessionStorage.removeItem('currentUser');
     this.loggedIn.next(false);
     clearTimeout(this.timeOut);
-    alert('Has cerrado sesión');
 
   }
 

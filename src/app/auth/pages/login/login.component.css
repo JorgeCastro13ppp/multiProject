@@ -5,6 +5,20 @@ html, body {
   font-family: Ubuntu-Regular, sans-serif;
 }
 
+.alert {
+  height: 5%;
+  margin-left: 49%;
+  top: 70px;
+}
+
+.w-6 {
+  width: 6%;
+}
+
+.w-5 {
+  width: 5%;
+}
+
 .container-img {
   padding: 0;
   margin: 0;
@@ -9700,7 +9714,6 @@ textarea:-ms-input-placeholder {
 button {
   outline: none !important;
   border: none;
-  background: transparent;
 }
 
 button:hover {
@@ -10075,4 +10088,11 @@ iframe {
     padding-left: 15px;
     padding-right: 15px;
   }
+}
+small {
+  color: #5b1369;
+  margin-left: 1rem;
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
 }/*# sourceMappingURL=login.component.css.map */

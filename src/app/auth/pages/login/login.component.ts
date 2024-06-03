@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserLogin } from '../../../shared/interfaces';
 import { Router } from '@angular/router';
@@ -17,17 +17,42 @@ export class LoginComponent implements OnInit {
 
   loginForm: NgForm|null=null;
 
-  constructor(private authService: AuthService,private router:Router) { }
+ loginCheck: any;
+
+
+  constructor(private authService: AuthService,private router:Router, private cdr:ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    console.log(this.loginCheck);
   }
 
-  onLogin() {
+  onLogin(): void {
     if (this.authService.login(this.userL)) {
-      this.router.navigate(['/home']);
-      alert('Inicio de sesión exitoso');
+      this.loginCheck = true;
+      this.cdr.detectChanges();
+      this.showAlert('successAlert');
+
+      // Navegar después de 5 segundos
+      setTimeout(() => {
+        this.router.navigate(['/home']);
+      }, 2000);
     } else {
-      alert('Usuario o contraseña incorrectos');
+      this.loginCheck = false;
+      this.cdr.detectChanges();
+      this.showAlert('failedAlert');
+    }
+  }
+
+  showAlert(alertId: string): void {
+    const alertElement = document.getElementById(alertId);
+    if (alertElement) {
+      alertElement.classList.remove('d-none');
+      alertElement.classList.add('d-block');
+      // Ocultar el alert después de 5 segundos
+      setTimeout(() => {
+        alertElement.classList.remove('d-block');
+        alertElement.classList.add('d-none');
+      }, 3000);
     }
   }
 

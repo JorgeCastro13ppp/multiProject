@@ -4,6 +4,20 @@ html, body {
   overflow: hidden;
 }
 
+.alert {
+  height: 5%;
+  margin-left: 49%;
+  top: 70px;
+}
+
+.alert-dismissible .btn-close {
+  top: -5px;
+}
+
+.w-6 {
+  width: 6%;
+}
+
 .container-img {
   padding: 0;
   margin: 0;

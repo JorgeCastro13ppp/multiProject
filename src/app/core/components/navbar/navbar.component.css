@@ -1,3 +1,11 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
+
 #svgHome {
   width: 20px;
 }
@@ -14,6 +22,10 @@
 
 #svgSessionLogOut {
   width: 23px;
+}
+
+.ms-n2 {
+  margin-left: -0.4rem !important;
 }
 
 [data-bs-theme=purple] {
@@ -41,10 +53,6 @@ a {
 
 a:active {
   color: #712cf9;
-}
-
-.ms-negative {
-  margin-left: -0.4 rem;
 }
 
 .btn-outline-light {

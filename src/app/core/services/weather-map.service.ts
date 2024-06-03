@@ -11,6 +11,7 @@ export class WeatherMapService {
 
   private apiKey = environmentsMap.apiKey;
   private apiUrl = 'https://tile.openweathermap.org/map/';
+  private apiUrlCity = environmentsMap.apiUrlCity;
 
   getMapData(layer:string,z:number,x:number,y:number) {
     const url = `${this.apiUrl}${layer}/${z}/${x}/${y}.png?appid=${this.apiKey}`;
