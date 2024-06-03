@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserLogin } from '../../../shared/interfaces';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   userL:UserLogin = {
-    username:'',
+    email:'',
     password:''
   };
+
+  loginForm: NgForm|null=null;
 
   constructor(private authService: AuthService,private router:Router) { }
 

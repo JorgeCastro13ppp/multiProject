@@ -4,12 +4,15 @@
 <div class="control" *ngIf="!spinner?.isLoading">
   <div class="container mt-4 mb-4 text-center">
     <h2>Selecciona una Comunidad Autónoma de <strong>España</strong>  </h2>
-    <select [(ngModel)]="selectedCommunity" (ngModelChange)="onSelectCommunity($event)"
-    class="form-select-lg form-dark-purple" aria-label="Default select example">
+    <div class="select-control">
+      <select [(ngModel)]="selectedCommunity" (ngModelChange)="onSelectCommunity($event)"
+    class="form-select-lg form-dark-purple selectpicker" aria-label="Default select example">
       <option *ngFor="let communitty of apiCommunities?.results " [value]="communitty.acom_code">
           {{ communitty.acom_name}}
       </option>
     </select>
+    </div>
+
   </div>
 
   <app-spinner-bootstrap [isLoadingBootstrap]="isLoadingProvinces"></app-spinner-bootstrap>

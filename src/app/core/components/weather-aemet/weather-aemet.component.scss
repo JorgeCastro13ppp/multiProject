@@ -1,6 +1,10 @@
 .container{
   animation: fadeIn 1.5s ease-out forwards ;
 }
+
+.control{
+  margin-top: 75px;
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;

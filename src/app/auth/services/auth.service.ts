@@ -48,7 +48,7 @@ export class AuthService {
 
   login(userLogin: UserLogin): boolean {
     const users = JSON.parse(localStorage.getItem('users') ?? '[]');
-    const user = users.find((u: any) => u.username === userLogin.username && u.password === userLogin.password);
+    const user = users.find((u: any) => u.email === userLogin.email && u.password === userLogin.password);
 
     if (user) {
       sessionStorage.setItem('currentUser', JSON.stringify(user));

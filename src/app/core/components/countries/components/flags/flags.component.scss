@@ -2,10 +2,17 @@
 
 img {
   width: 80%;
+  cursor: pointer;
 }
 .container{
   animation: fadeIn 1s ease-out forwards;
 }
+
+.modal-control{
+  margin-top: 75px;
+  height: 90%;
+}
+
 #smallName{
   font-weight: 500;
   font-size: medium;
